@@ -1,0 +1,138 @@
+/* 
+ * Custom CSS for Computer Coding Club Website
+ * 
+ * This file extends and overrides styles from the Goyo theme.
+ * The Goyo theme uses DaisyUI and TailwindCSS, so you can leverage those utilities.
+ * 
+ * USAGE:
+ * 1. To customize colors, uncomment and modify the CSS variables below
+ * 2. Add custom component styles as needed
+ * 3. Use existing Tailwind/DaisyUI classes in your HTML when possible
+ * 
+ * IMPORTANT: Keep this file organized with clear section comments
+ */
+
+/* ============================================
+   COLOR CUSTOMIZATION
+   ============================================
+   Uncomment and modify these variables to match your club branding
+   
+   :root {
+     --primary-color: #3b82f6;
+     --secondary-color: #8b5cf6;
+     --accent-color: #f59e0b;
+     --background-color: #1a1a1a;
+     --text-color: #e5e5e5;
+   }
+*/
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================
+   Custom font examples (if you want to override theme fonts)
+   
+   body {
+     font-family: 'Inter', system-ui, sans-serif;
+   }
+   
+   h1, h2, h3, h4, h5, h6 {
+     font-family: 'Poppins', system-ui, sans-serif;
+     font-weight: 600;
+   }
+*/
+
+/* ============================================
+   CUSTOM COMPONENTS
+   ============================================ */
+
+/* Example: Custom card style for team members
+.team-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+*/
+
+/* Example: Custom badge for tech stack tags
+.tech-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+*/
+
+/* Example: Custom hero section styling
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 4rem 2rem;
+  border-radius: 16px;
+  color: white;
+}
+*/
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Example: Mobile-specific adjustments
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
+*/
+
+/* ============================================
+   ANIMATION & TRANSITIONS
+   ============================================ */
+
+/* Example: Smooth scroll behavior
+html {
+  scroll-behavior: smooth;
+}
+*/
+
+/* Example: Fade-in animation for cards
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+*/
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Example: Focus states for better keyboard navigation
+a:focus,
+button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+*/
+
+/* ============================================
+   ADD YOUR CUSTOM STYLES BELOW
+   ============================================ */
+
+/* Your custom CSS here... */

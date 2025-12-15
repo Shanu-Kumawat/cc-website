@@ -1,20 +1,112 @@
 # The URL the site will be built for
-base_url = "https://example.com"
+# TODO: Update this with your actual domain before deployment
+base_url = "https://ccclub.example.com"
 
+# Site title - appears in browser tab and header
 title = "Computer Coding Club"
 
+# Brief description for SEO
+description = "Official website of Computer Coding Club - Learn, Build, and Grow Together"
+
+# Theme name (must match folder name in themes/)
 theme = "goyo"
 
-# Whether to automatically compile all Sass files in the sass directory
+# Automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
+# Build a search index for the built-in search functionality
 build_search_index = true
 
+# Default language
+default_language = "en"
+
+# Generate RSS/Atom feeds
+generate_feeds = true
+
+# Generate sitemap.xml for SEO
+generate_sitemap = true
+
+# Enable taxonomies for categorizing content
+taxonomies = [
+    {name = "tags", feed = true},
+    {name = "categories", feed = true},
+]
+
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+# Enable syntax highlighting for code blocks
 highlight_code = true
 
+# Show footnotes at the bottom of the page
+bottom_footnotes = true
+
+# Syntax highlighting theme (options: ayu-mirage, base16-ocean-dark, etc.)
+highlight_theme = "ayu-mirage"
+
 [extra]
-# Put all your custom variables here
+# Custom footer HTML
+footer_html = "<div style='display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;'><span>© 2025 Computer Coding Club. All rights reserved.</span><span style='opacity: 0.6;'>•</span><span>Built with <a href='https://www.getzola.org' class='font-medium text-base-content/70 hover:text-base-content transition-colors duration-200'>Zola</a> and <a href='https://github.com/hahwul/goyo' class='font-medium text-base-content/70 hover:text-base-content transition-colors duration-200'>Goyo</a></span></div>"
+
+# Default thumbnail for social media sharing (when page doesn't specify one)
+default_thumbnail = "images/cc-club-thumbnail.jpg"
+
+# Google Analytics tag (optional - leave empty to disable)
+# TODO: Add your Google Analytics ID if needed (format: "G-XXXXXXXXXX")
+gtag = ""
+
+# Navigation menu configuration
+# Each item can be:
+# - type = "url": Simple link to a page or external site
+# - type = "dropdown": Dropdown menu with sub-items
+nav = [
+    { name = "About", url = "/about", type = "url", icon = "fa-solid fa-circle-info" },
+    { name = "Blog", url = "/blog", type = "url", icon = "fa-solid fa-blog" },
+    { name = "Events", url = "/events", type = "url", icon = "fa-solid fa-calendar-days" },
+    { name = "ContriHub", url = "/contrihub", type = "url", icon = "fa-solid fa-code-branch" },
+    { name = "Projects", url = "/projects", type = "url", icon = "fa-solid fa-rocket" },
+    { name = "Roadmaps", url = "/roadmaps", type = "url", icon = "fa-solid fa-route" },
+    { name = "Resources", url = "/resources", type = "url", icon = "fa-solid fa-book-open" },
+    { name = "Community", type = "dropdown", icon = "fa-solid fa-users", members = [
+        { name = "Current Team", url = "/team", type = "url", icon = "fa-solid fa-user-group" },
+        { name = "Alumni", url = "/alumni", type = "url", icon = "fa-solid fa-graduation-cap" },
+    ] },
+    { name = "Contact", url = "/contact", type = "url", icon = "fa-solid fa-envelope" },
+]
+
+# GitHub edit URL for "Edit this page" button
+# TODO: Update with your actual repository URL
+edit_url = "https://github.com/your-org/cc-website/edit/main"
+
+# Logo Configuration
+[extra.logo]
+text = "CC Club"                           # Text to show when no logo image
+image_path = ""                            # TODO: Add logo image path (e.g., "images/logo.png")
+image_padding = "10px"                     # Padding around logo image
+# dark_image_path = "images/logo-dark.png" # Optional: Different logo for dark theme
+# light_image_path = "images/logo-light.png" # Optional: Different logo for light theme
+
+# Social Media Configuration
+[extra.twitter]
+site = "@your_club_handle"     # TODO: Add your club's Twitter handle
+creator = "@your_club_handle"  # Twitter handle for content creator
+
+# Theme Configuration
+[extra.theme]
+colorset = "dark"              # Options: "dark", "light"
+brightness = "normal"          # Options: "darker", "normal", "lighter"
+disable_toggle = false         # Set to true to hide theme toggle button
+
+# Font Configuration
+[extra.font]
+enabled = false                # Set to true to use custom font
+name = ""                      # Font name (e.g., "Inter", "Roboto")
+path = ""                      # Local path or Google Fonts URL
+
+# Sidebar Configuration
+[extra.sidebar]
+expand_depth = 2               # How many levels to auto-expand (1-5)
+disable_root_hide = false      # Set to true to always show sidebar on homepage
+
+# Share Buttons Configuration
+[extra.share]
+copy_url = true                # Enable "Copy URL" button on pages
+x = true                       # Enable "Share on X" button on pages

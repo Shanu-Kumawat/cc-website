@@ -1,0 +1,367 @@
+{# 
+  CONTRIHUB EVENT PAGE TEMPLATE
+  Custom template for displaying ContriHub event details with statistics, 
+  recognitions, featured contributions, and stories
+  Extends the base section template from Goyo theme
+#}
+
+{% extends "section.html" %}
+
+{% block content %}
+    {# Page Header with Event Info #}
+    <div class="mb-12 pb-4 border-b border-gray-500/15">
+        <div class="flex items-center gap-4 mb-4">
+            <h1>{{ section.title }}</h1>
+            {% if section.extra.status %}
+                {% if section.extra.status == "ongoing" %}
+                    <span class="badge badge-success badge-lg">Ongoing</span>
+                {% elif section.extra.status == "upcoming" %}
+                    <span class="badge badge-info badge-lg">Upcoming</span>
+                {% elif section.extra.status == "completed" %}
+                    <span class="badge badge-neutral badge-lg">Completed</span>
+                {% endif %}
+            {% endif %}
+        </div>
+        <p class="text-gray-500">{{ section.description }}</p>
+        
+        {# Event Dates #}
+        {% if section.extra.start_date and section.extra.end_date %}
+        <div class="flex items-center gap-2 mt-4 text-sm text-gray-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <span>{{ section.extra.start_date }} - {{ section.extra.end_date }}</span>
+        </div>
+        {% endif %}
+    </div>
+
+    {# Main Content #}
+    {{ section.content | safe }}
+
+    {# Event Statistics (if available) #}
+    {% if section.extra.contrihub_year %}
+        {% set year = section.extra.contrihub_year %}
+        {% set event_data = load_data(path="data/contrihub/" ~ year ~ ".yaml") %}
+        
+        {# Statistics Cards #}
+        {% if event_data.stats %}
+        <div class="not-prose my-12">
+            <h2 class="text-3xl font-bold mb-6">Event Impact</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {% if event_data.stats.participants %}
+                <div class="stat bg-base-200 rounded-box shadow-lg">
+                    <div class="stat-figure text-primary">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-value text-primary">{{ event_data.stats.participants }}</div>
+                    <div class="stat-title">Participants</div>
+                </div>
+                {% endif %}
+                
+                {% if event_data.stats.pull_requests %}
+                <div class="stat bg-base-200 rounded-box shadow-lg">
+                    <div class="stat-figure text-secondary">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-value text-secondary">{{ event_data.stats.pull_requests }}</div>
+                    <div class="stat-title">Pull Requests</div>
+                </div>
+                {% endif %}
+                
+                {% if event_data.stats.merged_prs %}
+                <div class="stat bg-base-200 rounded-box shadow-lg">
+                    <div class="stat-figure text-accent">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-value text-accent">{{ event_data.stats.merged_prs }}</div>
+                    <div class="stat-title">Merged PRs</div>
+                </div>
+                {% endif %}
+                
+                {% if event_data.stats.repositories %}
+                <div class="stat bg-base-200 rounded-box shadow-lg">
+                    <div class="stat-figure text-info">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M3 2.25a.75.75 0 000 1.5v16.5h-.75a.75.75 0 000 1.5H15v-18a.75.75 0 000-1.5H3zM6.75 19.5v-2.25a.75.75 0 01.75-.75h3a.75.75 0 01.75.75v2.25a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 010 1.5h-.75A.75.75 0 016 6.75zM6.75 9a.75.75 0 000 1.5h.75a.75.75 0 000-1.5h-.75zM6 12.75a.75.75 0 01.75-.75h.75a.75.75 0 010 1.5h-.75a.75.75 0 01-.75-.75zM10.5 6a.75.75 0 000 1.5h.75a.75.75 0 000-1.5h-.75zm-.75 3.75A.75.75 0 0110.5 9h.75a.75.75 0 010 1.5h-.75a.75.75 0 01-.75-.75zM10.5 12a.75.75 0 000 1.5h.75a.75.75 0 000-1.5h-.75zM16.5 6.75v10.5a.75.75 0 001.5 0V6.75a.75.75 0 00-1.5 0zM21 14.25v2.25a.75.75 0 001.5 0v-2.25a.75.75 0 00-1.5 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-value text-info">{{ event_data.stats.repositories }}</div>
+                    <div class="stat-title">Repositories</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {# Featured Contributions #}
+        {% set featured_path = "data/contrihub/" ~ year ~ "-featured.yaml" %}
+        {% set_global featured_data = false %}
+        {% set_global featured_data = load_data(path=featured_path) %}
+        
+        {% if featured_data and featured_data.featured_contributions %}
+        <div class="not-prose my-12">
+            <h2 class="text-3xl font-bold mb-6">Featured Contributions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for contribution in featured_data.featured_contributions %}
+                <div class="card bg-base-200 shadow-xl">
+                    {% if contribution.image %}
+                    <figure>
+                        <img src="{{ get_url(path=contribution.image) }}" alt="{{ contribution.title }}" class="w-full h-48 object-cover" />
+                    </figure>
+                    {% endif %}
+                    <div class="card-body">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="badge badge-primary">{{ contribution.category }}</span>
+                            <span class="badge badge-outline">{{ contribution.difficulty }}</span>
+                        </div>
+                        <h3 class="card-title text-lg">{{ contribution.title }}</h3>
+                        <p class="text-sm text-gray-500">{{ contribution.description }}</p>
+                        
+                        {# Contributor Info #}
+                        <div class="flex items-center gap-2 mt-4">
+                            {% if contribution.contributor.avatar %}
+                            <div class="avatar">
+                                <div class="w-8 h-8 rounded-full">
+                                    <img src="{{ get_url(path=contribution.contributor.avatar) }}" alt="{{ contribution.contributor.name }}" />
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div>
+                                <p class="text-sm font-semibold">{{ contribution.contributor.name }}</p>
+                                <p class="text-xs text-gray-500">@{{ contribution.contributor.github }}</p>
+                            </div>
+                        </div>
+                        
+                        {# Impact Metrics #}
+                        {% if contribution.impact %}
+                        <div class="mt-4">
+                            <p class="text-xs font-semibold mb-2">Impact:</p>
+                            <ul class="text-xs text-gray-500 space-y-1">
+                                {% for impact_item in contribution.impact %}
+                                <li>✓ {{ impact_item }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="card-actions justify-end mt-4">
+                            <a href="{{ contribution.pr_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                                View PR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {# Recognitions #}
+        {% set recognitions_path = "data/contrihub/" ~ year ~ "-recognitions.yaml" %}
+        {% set_global recognitions_data = false %}
+        {% set_global recognitions_data = load_data(path=recognitions_path) %}
+        
+        {% if recognitions_data and recognitions_data.recognitions %}
+        <div class="not-prose my-12">
+            <h2 class="text-3xl font-bold mb-6">Recognition Categories</h2>
+            
+            {% for recognition in recognitions_data.recognitions %}
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-4xl">{{ recognition.icon }}</span>
+                    <div>
+                        <h3 class="text-2xl font-bold">{{ recognition.category }}</h3>
+                        <p class="text-gray-500">{{ recognition.description }}</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for recipient in recognition.recipients %}
+                    <div class="card bg-base-200 shadow-lg">
+                        <div class="card-body">
+                            <div class="flex items-center gap-4">
+                                {% if recipient.photo %}
+                                <div class="avatar">
+                                    <div class="w-16 h-16 rounded-full">
+                                        <img src="{{ get_url(path=recipient.photo) }}" alt="{{ recipient.name }}" />
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <div>
+                                    <h4 class="font-bold text-lg">{{ recipient.name }}</h4>
+                                    <p class="text-sm text-gray-500">@{{ recipient.github }}</p>
+                                    <p class="text-xs text-gray-500">{{ recipient.year }} • {{ recipient.branch }}</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm mt-4">{{ recipient.summary }}</p>
+                            
+                            {% if recipient.contributions %}
+                            <div class="mt-4">
+                                <p class="text-xs font-semibold mb-2">Key Contributions:</p>
+                                <ul class="text-xs text-gray-500 space-y-1">
+                                    {% for contrib in recipient.contributions %}
+                                    <li>• {{ contrib }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {# Contributor Stories #}
+        {% set stories_path = "data/contrihub/" ~ year ~ "-stories.yaml" %}
+        {% set_global stories_data = false %}
+        {% set_global stories_data = load_data(path=stories_path) %}
+        
+        {% if stories_data and stories_data.stories %}
+        <div class="not-prose my-12">
+            <h2 class="text-3xl font-bold mb-6">Contributor Stories</h2>
+            
+            {% for story in stories_data.stories %}
+            <div class="card bg-base-200 shadow-xl mb-8">
+                <div class="card-body">
+                    {# Story Header #}
+                    <div class="flex items-center gap-4 mb-6">
+                        {% if story.contributor.photo %}
+                        <div class="avatar">
+                            <div class="w-20 h-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <img src="{{ get_url(path=story.contributor.photo) }}" alt="{{ story.contributor.name }}" />
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <h3 class="text-2xl font-bold">{{ story.title }}</h3>
+                            <p class="text-lg">{{ story.contributor.name }}</p>
+                            <p class="text-sm text-gray-500">{{ story.contributor.year }} • {{ story.contributor.branch }}</p>
+                            <span class="badge badge-secondary mt-2">{{ story.story_type }}</span>
+                        </div>
+                    </div>
+                    
+                    {# Quote #}
+                    <blockquote class="border-l-4 border-primary pl-4 italic text-lg my-6">
+                        "{{ story.quote }}"
+                    </blockquote>
+                    
+                    {# Journey #}
+                    {% if story.journey %}
+                    <div class="space-y-4">
+                        {% if story.journey.before %}
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Before ContriHub</h4>
+                            <p class="text-gray-600">{{ story.journey.before }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if story.journey.during %}
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">During ContriHub</h4>
+                            <p class="text-gray-600">{{ story.journey.during }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if story.journey.after %}
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">After ContriHub</h4>
+                            <p class="text-gray-600">{{ story.journey.after }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    {# Key Learnings #}
+                    {% if story.key_learnings %}
+                    <div class="mt-6">
+                        <h4 class="font-bold text-lg mb-3">Key Learnings</h4>
+                        <ul class="space-y-2">
+                            {% for learning in story.key_learnings %}
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary">💡</span>
+                                <span>{{ learning }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    {# Advice #}
+                    {% if story.advice_to_future %}
+                    <div class="alert alert-info mt-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <h4 class="font-bold">Advice for Future Contributors</h4>
+                            <p class="text-sm">{{ story.advice_to_future }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {# Stats #}
+                    {% if story.stats %}
+                    <div class="stats stats-vertical lg:stats-horizontal shadow mt-6 w-full">
+                        {% if story.stats.pull_requests %}
+                        <div class="stat">
+                            <div class="stat-title">Pull Requests</div>
+                            <div class="stat-value text-primary">{{ story.stats.pull_requests }}</div>
+                        </div>
+                        {% endif %}
+                        {% if story.stats.repositories %}
+                        <div class="stat">
+                            <div class="stat-title">Repositories</div>
+                            <div class="stat-value text-secondary">{{ story.stats.repositories }}</div>
+                        </div>
+                        {% endif %}
+                        {% if story.stats.lines_changed %}
+                        <div class="stat">
+                            <div class="stat-title">Lines Changed</div>
+                            <div class="stat-value text-accent">{{ story.stats.lines_changed }}</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endif %}
+
+{% endblock content %}
+
+{# 
+  NOTES FOR CONTENT TEAM:
+  
+  1. DATA SOURCES:
+     - Event data: data/contrihub/YEAR.yaml (e.g., 2025.yaml)
+     - Featured contributions: data/contrihub/YEAR-featured.yaml
+     - Recognitions: data/contrihub/YEAR-recognitions.yaml
+     - Stories: data/contrihub/YEAR-stories.yaml
+  
+  2. PAGE CONFIGURATION:
+     - Set template = "contrihub-event.html" in frontmatter
+     - Set extra.contrihub_year to load data (e.g., "2025")
+     - Set extra.status to show event status badge
+  
+  3. CUSTOMIZATION:
+     - Modify grid layouts for different card arrangements
+     - Change stat cards in the statistics section
+     - Add/remove sections as needed
+  
+  4. TROUBLESHOOTING:
+     - If data doesn't show: Check YAML file paths and names
+     - If images missing: Verify image paths in data files
+     - Check browser console for template errors
+#}

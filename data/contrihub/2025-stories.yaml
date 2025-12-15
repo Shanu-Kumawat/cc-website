@@ -1,0 +1,277 @@
+# ContriHub 2025 - Contributor Stories
+# Personal journeys and experiences from participants
+# These stories inspire and show the human side of open source
+
+stories:
+
+  # ==================== STORY 1: FIRST-TIME CONTRIBUTOR ====================
+  
+  - id: "ananya-first-timer"
+    contributor:
+      name: "Ananya Sharma"
+      github: "ananya-dev"
+      year: "2nd Year"
+      branch: "CSE"
+      photo: "images/contrihub/2025/ananya-sharma.jpg"
+      linkedin: "https://linkedin.com/in/ananya-sharma"
+    
+    title: "From 'Git Scared' to 8 Merged PRs"
+    
+    story_type: "First-Time Contributor"
+    
+    quote: "I was terrified of breaking something. Now I'm the person helping others debug their first PR."
+    
+    journey:
+      before: "I had only used Git for personal projects. The idea of contributing to a public repository with 30 other people was intimidating. What if I broke something? What if my code wasn't good enough?"
+      
+      during: "My first PR was just fixing a typo in documentation. It took me 3 hours to make a one-line change because I was so nervous! But when it got merged, I felt incredible. The maintainers were supportive and patient. I learned to use branches, write commit messages properly, and review others' code. Each PR got easier."
+      
+      after: "I ended up making 8 PRs across 3 repositories. I fixed responsive design issues, improved documentation, and even tackled a complex CSS bug. More importantly, I lost my fear of open source. Now I'm actively contributing to projects outside college too."
+    
+    key_learnings:
+      - "Everyone starts somewhere - even maintainers were beginners once"
+      - "Small contributions matter - documentation fixes help real people"
+      - "The community is supportive - don't hesitate to ask questions"
+      - "Break things in branches - that's what they're for!"
+      - "Code review feedback makes you better - embrace it"
+    
+    advice_to_future: "Don't wait to be 'ready enough'. You'll learn by doing. Start with small issues, read the contribution guide carefully, and ask questions without hesitation. Your first PR will be scary, but by your third one, you'll wonder why you were nervous."
+    
+    favorite_moment: "When a senior I really admire commented on my PR saying 'Great attention to detail! This will really help mobile users.' That validation meant everything."
+    
+    stats:
+      pull_requests: 8
+      repositories: 3
+      lines_changed: 450
+      
+    date: "2025-02-05"
+
+  # ==================== STORY 2: NON-CS CONTRIBUTOR ====================
+  
+  - id: "rohit-non-cs"
+    contributor:
+      name: "Rohit Kumar"
+      github: "rohit-newbie"
+      year: "1st Year"
+      branch: "Mechanical Engineering"
+      photo: "images/contrihub/2025/rohit-kumar.jpg"
+      linkedin: "https://linkedin.com/in/rohit-kumar"
+    
+    title: "A Mechanical Engineer's Journey into Code"
+    
+    story_type: "Non-CS Background"
+    
+    quote: "They said 'you don't need to be a CS student to contribute.' I'm proof that's true."
+    
+    journey:
+      before: "I'm a mechanical engineering student with only basic Python knowledge from a first-year course. When I saw ContriHub announced, I thought it wasn't for me. But the event description specifically mentioned 'all branches welcome' - so I decided to try."
+      
+      during: "I started by reading documentation and understanding the codebase. The maintainers created 'good first issues' perfect for beginners. My first contribution was a Python script to automate data migration - something I could do with my basic Python skills. When I realized my script saved the team 10+ hours of manual work, I felt like I'd contributed something real. I went on to create more automation tools."
+      
+      after: "I made 6 PRs focusing on automation and scripting. I realized that you don't need to know React or Django to contribute meaningfully. Problem-solving matters more than your branch. This experience made me seriously consider learning web development. I've now started the CC Club's web development roadmap."
+    
+    key_learnings:
+      - "Your branch doesn't limit your contributions"
+      - "Automation and tooling are valuable contributions"
+      - "Problem-solving skills transfer across domains"
+      - "Open source is truly open to everyone"
+      - "Start with what you know, learn as you go"
+    
+    advice_to_future: "If you're from a non-CS background, don't disqualify yourself. Look for issues involving automation, documentation, testing, or data processing. These need problem-solving skills, not advanced CS knowledge. Your different perspective might even help you spot problems CS students miss."
+    
+    favorite_moment: "When a CS senior asked me how I wrote my data validation script because they wanted to learn that approach. The 'non-CS guy' teaching CS students felt amazing."
+    
+    stats:
+      pull_requests: 6
+      repositories: 2
+      lines_changed: 380
+    
+    date: "2025-02-08"
+
+  # ==================== STORY 3: ADVANCED CONTRIBUTOR ====================
+  
+  - id: "priya-advanced"
+    contributor:
+      name: "Priya Agarwal"
+      github: "priya-impact"
+      year: "4th Year"
+      branch: "CSE"
+      photo: "images/contrihub/2025/priya-agarwal.jpg"
+      linkedin: "https://linkedin.com/in/priya-agarwal"
+    
+    title: "Building Real-time Features That Matter"
+    
+    story_type: "Advanced Contributor"
+    
+    quote: "ContriHub isn't about competing - it's about building something that helps real people."
+    
+    journey:
+      before: "I've been contributing to open source for 2 years and have experience with WebSockets and real-time systems. I saw ContriHub as an opportunity to build something impactful for our college community while mentoring juniors."
+      
+      during: "I proposed building a real-time notification system for the website. This was a complex feature requiring WebSocket implementation, Redis caching, and email integration. I broke it into smaller PRs to make review easier. While building, I also helped 5 junior contributors with their PRs, reviewed code, and explained concepts. The implementation took 3 weeks, but seeing notifications work in production was incredible."
+      
+      after: "The notification system increased event attendance by 60%. More than the feature itself, I'm proud of the mentorship aspect. Three juniors I helped are now confident contributors. One is even exploring WebSockets for their own project. This experience reminded me why I love open source - it's collaborative, not competitive."
+    
+    key_learnings:
+      - "Break complex features into reviewable PRs"
+      - "Mentor while you build - teaching reinforces learning"
+      - "Real-world impact trumps lines of code"
+      - "Good documentation is part of the contribution"
+      - "Open source is a team sport"
+    
+    advice_to_future: "If you're experienced, take on challenging features. But remember - your job isn't just to write code. Review others' PRs constructively, answer questions on Discord, and create beginner-friendly issues. The best contributors make the community better, not just the codebase."
+    
+    favorite_moment: "When a first-year student I mentored got their first PR merged and messaged me: 'I couldn't have done this without your help.' That meant more than any recognition."
+    
+    stats:
+      pull_requests: 12
+      repositories: 4
+      lines_changed: 2800
+      prs_reviewed: 50
+      contributors_mentored: 5
+    
+    date: "2025-02-10"
+
+  # ==================== STORY 4: DOCUMENTATION CONTRIBUTOR ====================
+  
+  - id: "meera-docs"
+    contributor:
+      name: "Meera Nair"
+      github: "meera-docs"
+      year: "2nd Year"
+      branch: "IT"
+      photo: "images/contrihub/2025/meera-nair.jpg"
+      linkedin: "https://linkedin.com/in/meera-nair"
+    
+    title: "Why Documentation Is Real Engineering"
+    
+    story_type: "Documentation Specialist"
+    
+    quote: "I didn't write fancy code, but I helped 50+ people contribute who wouldn't have otherwise."
+    
+    journey:
+      before: "I'm not the strongest programmer, but I love writing and explaining things clearly. When I saw people struggling with setup in the Discord, I realized documentation needed work. I decided to make that my focus."
+      
+      during: "I completely rewrote the setup guide with OS-specific instructions, troubleshooting sections, and video walkthroughs. I tested every step on 3 different machines to catch edge cases. I created a FAQ based on real questions from Discord. I documented common Git workflows. I even made beginner-friendly issue templates. People started using my guides immediately."
+      
+      after: "Setup time dropped from 2 hours to 15 minutes. New contributors could start contributing on day one instead of day three. Multiple people told me my documentation was the best they'd seen in any college project. I realized documentation is just as important as code - maybe more so for accessibility."
+    
+    key_learnings:
+      - "Good docs lower barriers to entry"
+      - "Test documentation like you test code"
+      - "Real user questions reveal gaps in docs"
+      - "Videos complement written guides"
+      - "Documentation is a skill worth developing"
+    
+    advice_to_future: "If you're not confident in coding, focus on documentation. It's just as valuable and desperately needed. Good docs help dozens of people. Watch where people struggle, then document solutions. Use clear language, screenshots, and examples. Your work enables everyone else's contributions."
+    
+    favorite_moment: "A first-timer completed setup in 12 minutes using my guide and messaged: 'This is the clearest documentation I've ever followed.' Made all the work worth it."
+    
+    stats:
+      pull_requests: 9
+      repositories: 3
+      docs_pages: 15
+      setup_success_rate: "95%"
+      people_helped: "50+"
+    
+    date: "2025-02-12"
+
+  # ==================== STORY 5: COMMUNITY BUILDER ====================
+  
+  - id: "rohan-mentor"
+    contributor:
+      name: "Rohan Kumar"
+      github: "rohan-mentor"
+      year: "4th Year"
+      branch: "CSE"
+      photo: "images/contrihub/2025/rohan-kumar.jpg"
+      linkedin: "https://linkedin.com/in/rohan-kumar"
+    
+    title: "Building a Community, Not Just a Codebase"
+    
+    story_type: "Community Leader"
+    
+    quote: "My best contribution wasn't code - it was helping 10 first-timers become confident contributors."
+    
+    journey:
+      before: "As a final-year student with open source experience, I wanted my last ContriHub to be special. Instead of just pushing code, I decided to focus on mentoring and community building."
+      
+      during: "I held 1-on-1 mentorship sessions, reviewed 50+ PRs with detailed feedback, created beginner-friendly issues, and was constantly active on Discord. I paired with first-timers for their first commits. I explained Git concepts with drawings on Discord. I celebrated every merged PR, no matter how small. I made sure people felt welcomed and supported."
+      
+      after: "Ten people I mentored are now active open source contributors. Three got internship offers and mentioned ContriHub experience in interviews. The community we built was collaborative, supportive, and inclusive. That's the legacy I'm proud of - not lines of code, but people empowered."
+    
+    key_learnings:
+      - "Community health matters more than code volume"
+      - "Good mentorship multiplies your impact"
+      - "Celebrate small wins publicly"
+      - "Patience and encouragement change lives"
+      - "The best legacy is people you've helped"
+    
+    advice_to_future: "ContriHub's success isn't measured in PRs - it's measured in how many people feel confident to contribute again. If you're experienced, make time to mentor. Review PRs constructively. Answer questions patiently. Create easy issues. Celebrate others' successes. That's how you build a real community."
+    
+    favorite_moment: "During the closing ceremony, a first-year student publicly thanked me for helping them overcome impostor syndrome. Several others echoed similar sentiments. That's when I knew I'd done something meaningful."
+    
+    stats:
+      pull_requests: 8
+      prs_reviewed: 50
+      contributors_mentored: 10
+      discord_messages: "500+"
+      mentorship_sessions: 15
+    
+    date: "2025-02-15"
+
+# NOTES FOR MAINTAINING:
+#
+# 1. PURPOSE:
+#    - Inspire future contributors with real journeys
+#    - Show diversity of contribution types and backgrounds
+#    - Humanize open source contribution
+#    - Provide actionable advice
+#
+# 2. STORY TYPES TO INCLUDE:
+#    - First-time contributor journey
+#    - Non-CS background success
+#    - Advanced technical contribution
+#    - Documentation specialist
+#    - Community builder/mentor
+#    - Consistent contributor
+#    - Problem solver
+#
+# 3. STRUCTURE:
+#    - Before: Initial state, fears, motivations
+#    - During: Actions taken, challenges, growth
+#    - After: Outcomes, reflections, impact
+#    - Learning: Concrete takeaways
+#    - Advice: Actionable guidance for future contributors
+#
+# 4. SELECTION CRITERIA:
+#    - Genuine, relatable experiences
+#    - Clear learning journey
+#    - Diversity (years, branches, contribution types)
+#    - Inspiring but realistic
+#    - Written in contributor's own voice
+#
+# 5. WRITING GUIDELINES:
+#    - First-person perspective
+#    - Honest about struggles and fears
+#    - Specific moments and details
+#    - Avoid clichés and empty motivation
+#    - Focus on actionable insights
+#
+# 6. GETTING STORIES:
+#    - Interview contributors after event
+#    - Ask specific questions about journey
+#    - Get written permission to publish
+#    - Let them review and edit their story
+#    - Keep authentic voice
+#
+# 7. PHOTOS & PRIVACY:
+#    - Only with explicit consent
+#    - Professional but friendly photos
+#    - LinkedIn links only if contributor provides
+#
+# 8. UPDATING:
+#    - Create new file each year (2026-stories.yaml)
+#    - Aim for 4-6 stories per year
+#    - Balance story types
+#    - Quality over quantity

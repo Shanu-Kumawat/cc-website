@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block header %}
+    {{ macros_header::header(config=config, lang=lang) }}
+{% endblock header %}
+
+{% block content %}
+    <div class="mb-12 pb-4 border-b border-gray-500/15">
+        <h1>{{ term.name }}</h1>
+        <p class="text-gray-500">{{ taxonomy.name | capitalize }}: {{ term.name }}</p>
+    </div>
+
+    {% if term.pages %}
+    <div class="not-prose">
+        <div class="space-y-6">
+            {% for page in term.pages %}
+            <article class="card bg-base-200 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="card-body">
+                    <h2 class="card-title">
+                        <a href="{{ page.permalink }}" class="hover:text-primary">
+                            {{ page.title }}
+                        </a>
+                    </h2>
+                    {% if page.description %}
+                    <p class="text-gray-600">{{ page.description }}</p>
+                    {% endif %}
+                    <div class="text-sm text-gray-500">
+                        {% if page.date %}
+                        <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <p class="text-gray-500">No posts found in this {{ taxonomy.name }}.</p>
+    {% endif %}
+{% endblock content %}

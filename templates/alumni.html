@@ -1,0 +1,143 @@
+{# 
+  ALUMNI PAGE TEMPLATE
+  Custom template for displaying alumni directory with search and filters
+  Extends the base page template from Goyo theme
+#}
+
+{% extends "page.html" %}
+
+{% block content %}
+    {# Page Header #}
+    <div class="mb-12 pb-4 border-b border-gray-500/15">
+        <h1>{{ page.title }}</h1>
+        <p class="text-gray-500">{{ page.description }}</p>
+    </div>
+
+    {# Introduction Text #}
+    {{ page.content | safe }}
+
+    {# Search and Filter Section #}
+    <div class="not-prose my-8">
+        <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title">Search Alumni</h2>
+                
+                {# Search Input #}
+                <div class="form-control">
+                    <input 
+                        type="text" 
+                        id="alumni-search" 
+                        placeholder="Search by name, company, or role..." 
+                        class="input input-bordered w-full"
+                    />
+                </div>
+
+                {# Filters #}
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                    {# Batch Filter #}
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Batch</span>
+                        </label>
+                        <select id="filter-batch" class="select select-bordered w-full">
+                            <option value="">All Batches</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+
+                    {# Domain Filter #}
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Domain</span>
+                        </label>
+                        <select id="filter-domain" class="select select-bordered w-full">
+                            <option value="">All Domains</option>
+                            <option value="Software Development">Software Development</option>
+                            <option value="Data Science">Data Science</option>
+                            <option value="Machine Learning">Machine Learning</option>
+                            <option value="Product Management">Product Management</option>
+                            <option value="Research">Research</option>
+                            <option value="DevOps">DevOps</option>
+                        </select>
+                    </div>
+
+                    {# Company Filter #}
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Company Type</span>
+                        </label>
+                        <select id="filter-company" class="select select-bordered w-full">
+                            <option value="">All Companies</option>
+                            <option value="FAANG">FAANG</option>
+                            <option value="Startup">Startup</option>
+                            <option value="Service">Service Based</option>
+                            <option value="Research">Research/Academia</option>
+                        </select>
+                    </div>
+                </div>
+
+                {# Results Count #}
+                <div class="mt-4">
+                    <p class="text-sm text-gray-500">
+                        Showing <span id="results-count">0</span> alumni
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Alumni Grid - Data populated by JavaScript from alumni.yaml #}
+    <div id="alumni-grid" class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+        {# Alumni cards will be injected here by JavaScript #}
+    </div>
+
+    {# No Results Message #}
+    <div id="no-results" class="hidden text-center py-12">
+        <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p class="text-gray-500 text-lg">No alumni found matching your criteria</p>
+        <p class="text-gray-400 text-sm mt-2">Try adjusting your search or filters</p>
+    </div>
+
+    {# Loading State #}
+    <div id="loading-state" class="text-center py-12">
+        <span class="loading loading-spinner loading-lg"></span>
+        <p class="text-gray-500 mt-4">Loading alumni data...</p>
+    </div>
+
+    {# JavaScript for Alumni Search and Display #}
+    <script src="{{ get_url(path='js/alumni-search.js') }}"></script>
+
+{% endblock content %}
+
+{# 
+  NOTES FOR CONTENT TEAM:
+  
+  1. DATA SOURCE:
+     - Alumni data comes from data/alumni.yaml
+     - JavaScript (alumni-search.js) loads and displays the data
+  
+  2. ADDING NEW FILTERS:
+     - Add new <select> element in the filters grid
+     - Give it an id like "filter-yourfield"
+     - Update alumni-search.js to handle the new filter
+  
+  3. STYLING:
+     - Uses DaisyUI components (card, input, select)
+     - Grid layout is responsive (1 col mobile, 2 cols tablet, 3 cols desktop)
+     - Modify Tailwind classes to change appearance
+  
+  4. CUSTOMIZATION:
+     - Change grid columns: modify "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+     - Change card styling in alumni-search.js
+     - Add more filter options in the dropdowns
+  
+  5. TROUBLESHOOTING:
+     - If alumni don't show: Check browser console for errors
+     - If search doesn't work: Verify alumni-search.js is loaded
+     - If filters don't work: Check filter IDs match JavaScript
+#}

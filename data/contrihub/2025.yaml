@@ -1,0 +1,203 @@
+# ContriHub 2025 Event Data
+# Main event information and statistics
+
+event:
+  name: "ContriHub 2025"
+  tagline: "Build What Matters"
+  start_date: "2025-10-15"
+  end_date: "2025-11-15"
+  duration: "1 month"
+  participants: 45
+  merged_prs: 120
+  repositories: 8
+  description: "Month-long open source contribution event focused on improving CC Club's ecosystem"
+
+# Event Statistics
+stats:
+  features_added: 15
+  bugs_fixed: 30
+  docs_improved: 25
+  tests_added: 20
+  first_time_contributors: 20
+  returning_contributors: 25
+
+# Repositories involved in ContriHub 2025
+repositories:
+  - name: "CC Club Website"
+    tech_stack: ["Zola", "HTML", "CSS", "JavaScript"]
+    github_url: "https://github.com/ccclub/website"
+    improvements:
+      - "New alumni search with filters"
+      - "Mobile responsiveness improvements"
+      - "15+ bug fixes"
+      - "Complete documentation rewrite"
+    live_url: "https://ccclub.example.com"
+    contributions: 35
+
+  - name: "DSA Practice Platform"
+    tech_stack: ["Python", "Flask", "PostgreSQL"]
+    github_url: "https://github.com/ccclub/dsa-platform"
+    improvements:
+      - "20+ new problems added"
+      - "Solution explanations improved"
+      - "Test automation setup"
+      - "Beginner-friendly setup guide"
+    contributions: 28
+
+  - name: "Alumni Portal"
+    tech_stack: ["React", "Node.js", "MongoDB"]
+    github_url: "https://github.com/ccclub/alumni-portal"
+    improvements:
+      - "Profile completion wizard"
+      - "Advanced search and filters"
+      - "Email notification system"
+      - "Admin dashboard enhancements"
+    live_url: "https://alumni.ccclub.edu"
+    contributions: 18
+
+  - name: "Event Management System"
+    tech_stack: ["React", "Express", "PostgreSQL"]
+    github_url: "https://github.com/ccclub/events"
+    improvements:
+      - "QR code check-in system"
+      - "Attendance tracking"
+      - "Certificate generation"
+      - "Analytics dashboard"
+    contributions: 15
+
+  - name: "Roadmap Repository"
+    tech_stack: ["Markdown", "Mermaid.js"]
+    github_url: "https://github.com/ccclub/roadmaps"
+    improvements:
+      - "5 new roadmaps added"
+      - "Resource links updated"
+      - "Interactive diagrams"
+      - "Progress tracking feature"
+    contributions: 10
+
+  - name: "Blog Content"
+    tech_stack: ["Markdown"]
+    github_url: "https://github.com/ccclub/blog"
+    improvements:
+      - "10+ new technical articles"
+      - "Tutorial series on React, Python, DSA"
+      - "Event coverage posts"
+      - "SEO optimization"
+    contributions: 8
+
+  - name: "Utility Scripts"
+    tech_stack: ["Python", "Bash"]
+    github_url: "https://github.com/ccclub/utils"
+    improvements:
+      - "Data migration tools"
+      - "Automated deployment scripts"
+      - "Testing utilities"
+      - "CI/CD pipeline configs"
+    contributions: 4
+
+  - name: "Documentation Hub"
+    tech_stack: ["Markdown", "MkDocs"]
+    github_url: "https://github.com/ccclub/docs"
+    improvements:
+      - "Contribution guidelines"
+      - "Setup guides for all projects"
+      - "Best practices documentation"
+      - "Troubleshooting guides"
+    contributions: 2
+
+# Event Timeline
+timeline:
+  - week: 1
+    dates: "Oct 15-21"
+    title: "Kickoff & Onboarding"
+    activities:
+      - "Opening ceremony"
+      - "Git/GitHub workshop"
+      - "Repository exploration"
+      - "First contributions"
+
+  - week: 2
+    dates: "Oct 22-28"
+    title: "Active Development"
+    activities:
+      - "Weekly office hours"
+      - "Mentor pairing sessions"
+      - "Sprint challenges"
+
+  - week: 3
+    dates: "Oct 29 - Nov 4"
+    title: "Mid-Event Push"
+    activities:
+      - "Mid-event check-in"
+      - "Special workshops"
+      - "Code reviews"
+
+  - week: 4
+    dates: "Nov 5-14"
+    title: "Final Sprint"
+    activities:
+      - "Last-minute contributions"
+      - "Documentation finalization"
+      - "Final reviews and merges"
+
+  - week: 5
+    dates: "Nov 15"
+    title: "Celebration"
+    activities:
+      - "Contribution showcase"
+      - "Recognition ceremony"
+      - "Closing celebration"
+
+# Key Learnings
+learnings:
+  what_worked:
+    - "Beginner-friendly 'good first issue' tags"
+    - "One-on-one mentor pairing"
+    - "Weekly office hours for real-time support"
+    - "Inclusive recognition approach"
+    - "Comprehensive setup documentation"
+
+  areas_for_improvement:
+    - "Need more issues prepared before event start"
+    - "Faster PR review process needed"
+    - "More complex issues for experienced contributors"
+    - "Better cross-repository coordination"
+
+  participant_feedback:
+    participation_rate: 95  # % would participate again
+    felt_supported: 88      # % felt supported
+    learned_new_skills: 92  # % learned new skills
+    made_connections: 85    # % made lasting connections
+    will_continue: 90       # % plan to continue contributing
+
+# Impact Metrics
+impact:
+  website:
+    traffic_increase: "40%"
+    mobile_responsive: true
+    bounce_rate_reduction: "30%"
+    
+  dsa_platform:
+    new_problems: 20
+    user_increase: "50%"
+    test_coverage_improvement: "45% → 72%"
+    setup_time_reduction: "2 hours → 15 minutes"
+
+  alumni_portal:
+    profile_completeness_increase: "40%"
+    search_usage: "80%"
+    load_time_improvement: "35%"
+
+# Resources
+resources:
+  event_repository: "https://github.com/ccclub/contrihub-2025"
+  project_board: "https://github.com/orgs/ccclub/projects/5"
+  photo_gallery: "https://photos.app.goo.gl/contrihub2025"
+  video_playlist: "https://youtube.com/ccclub-contrihub2025"
+  certificates: "https://ccclub.edu/contrihub2025/certificates"
+
+# Notes for maintainers:
+# - Update this file after each ContriHub event
+# - Use actual numbers, not estimates
+# - Include both successes and areas for improvement
+# - Verify all URLs are accessible

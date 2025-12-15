@@ -1,0 +1,250 @@
+# Alumni Data for Computer Coding Club
+# This file contains information about CC Club alumni
+# Organized by graduation year for easy filtering
+
+# EXAMPLE ALUMNI ENTRIES
+# Copy this structure for each alumni addition
+
+alumni:
+  # ==================== BATCH 2025 ====================
+  
+  - name: "Vikram Singh"
+    batch: "2021-2025"
+    graduation_year: 2025
+    current_role: "Software Engineer II"
+    company: "Google"
+    domain: "Backend Development"
+    location: "Bangalore, India"
+    image: "images/alumni/vikram-singh.jpg"
+    linkedin: "https://linkedin.com/in/vikram-singh-sde"
+    github: "https://github.com/vikram-singh"
+    message: "CC Club taught me more than just coding - it taught me how to learn, collaborate, and give back to the community."
+
+  - name: "Neha Gupta"
+    batch: "2021-2025"
+    graduation_year: 2025
+    current_role: "Engineering Manager"
+    company: "Microsoft"
+    domain: "Cloud Infrastructure"
+    location: "Hyderabad, India"
+    image: "images/alumni/neha-gupta.jpg"
+    linkedin: "https://linkedin.com/in/neha-gupta-eng"
+    github: "https://github.com/neha-codes"
+    message: "Start early, contribute to open source, and don't be afraid to ask questions. The CC Club community is here to help!"
+
+  - name: "Rajesh Patel"
+    batch: "2021-2025"
+    graduation_year: 2025
+    current_role: "Data Scientist"
+    company: "Amazon"
+    domain: "Machine Learning"
+    location: "Seattle, USA"
+    image: "images/alumni/rajesh-patel.jpg"
+    linkedin: "https://linkedin.com/in/rajesh-patel-ml"
+    github: "https://github.com/rajesh-ml"
+
+  # ==================== BATCH 2024 ====================
+
+  - name: "Priya Sharma"
+    batch: "2020-2024"
+    graduation_year: 2024
+    current_role: "Full Stack Developer"
+    company: "Razorpay"
+    domain: "Fintech"
+    location: "Bangalore, India"
+    image: "images/alumni/priya-sharma.jpg"
+    linkedin: "https://linkedin.com/in/priya-sharma-dev"
+    github: "https://github.com/priya-fullstack"
+    message: "Hackathons and projects in CC Club were instrumental in building my portfolio. Employers love seeing real contributions!"
+
+  - name: "Arjun Verma"
+    batch: "2020-2024"
+    graduation_year: 2024
+    current_role: "Frontend Engineer"
+    company: "Flipkart"
+    domain: "Frontend Development"
+    location: "Bangalore, India"
+    image: "images/alumni/arjun-verma.jpg"
+    linkedin: "https://linkedin.com/in/arjun-verma-frontend"
+    github: "https://github.com/arjun-frontend"
+
+  - name: "Anjali Kapoor"
+    batch: "2020-2024"
+    graduation_year: 2024
+    current_role: "Product Manager"
+    company: "Zomato"
+    domain: "Product Management"
+    location: "Gurugram, India"
+    image: "images/alumni/anjali-kapoor.jpg"
+    linkedin: "https://linkedin.com/in/anjali-kapoor-pm"
+    message: "Even as a non-CS student, CC Club helped me understand tech and transition into product management."
+
+  # ==================== BATCH 2023 ====================
+
+  - name: "Siddharth Malhotra"
+    batch: "2019-2023"
+    graduation_year: 2023
+    current_role: "Senior SDE"
+    company: "Meta"
+    domain: "Distributed Systems"
+    location: "London, UK"
+    image: "images/alumni/siddharth-malhotra.jpg"
+    linkedin: "https://linkedin.com/in/siddharth-malhotra"
+    github: "https://github.com/siddharth-meta"
+    message: "From struggling with basic algorithms to working on systems serving billions - the journey started at CC Club!"
+
+  - name: "Divya Nair"
+    batch: "2019-2023"
+    graduation_year: 2023
+    current_role: "ML Engineer"
+    company: "OpenAI"
+    domain: "Natural Language Processing"
+    location: "San Francisco, USA"
+    image: "images/alumni/divya-nair.jpg"
+    linkedin: "https://linkedin.com/in/divya-nair-ml"
+    github: "https://github.com/divya-nlp"
+
+  - name: "Karan Joshi"
+    batch: "2019-2023"
+    graduation_year: 2023
+    current_role: "Founding Engineer"
+    company: "TechStartup (Stealth)"
+    domain: "Full Stack"
+    location: "Mumbai, India"
+    image: "images/alumni/karan-joshi.jpg"
+    linkedin: "https://linkedin.com/in/karan-joshi-startup"
+    github: "https://github.com/karan-startup"
+    message: "The entrepreneurial spirit I developed at CC Club led me to join a startup. Best decision ever!"
+
+  # ==================== BATCH 2022 ====================
+
+  - name: "Meera Reddy"
+    batch: "2018-2022"
+    graduation_year: 2022
+    current_role: "Software Engineer"
+    company: "Adobe"
+    domain: "Creative Cloud"
+    location: "Noida, India"
+    image: "images/alumni/meera-reddy.jpg"
+    linkedin: "https://linkedin.com/in/meera-reddy"
+    github: "https://github.com/meera-adobe"
+
+  - name: "Rahul Mehta"
+    batch: "2018-2022"
+    graduation_year: 2022
+    current_role: "DevOps Engineer"
+    company: "Atlassian"
+    domain: "Cloud Infrastructure"
+    location: "Sydney, Australia"
+    image: "images/alumni/rahul-mehta.jpg"
+    linkedin: "https://linkedin.com/in/rahul-mehta-devops"
+    github: "https://github.com/rahul-devops"
+    message: "CC Club's emphasis on collaboration and tooling led me naturally to DevOps. Love what I do!"
+
+  # ==================== ADDITIONAL EXAMPLES ====================
+  # These represent different career paths to show diversity
+
+  - name: "Ananya Desai"
+    batch: "2019-2023"
+    graduation_year: 2023
+    current_role: "PhD Candidate"
+    company: "MIT"
+    domain: "Computer Vision"
+    location: "Boston, USA"
+    image: "images/alumni/ananya-desai.jpg"
+    linkedin: "https://linkedin.com/in/ananya-desai-phd"
+    github: "https://github.com/ananya-research"
+    message: "CC Club's research-oriented projects inspired me to pursue a PhD. Academia needs great engineers!"
+
+  - name: "Rohit Agarwal"
+    batch: "2018-2022"
+    graduation_year: 2022
+    current_role: "Cybersecurity Analyst"
+    company: "Palo Alto Networks"
+    domain: "Security"
+    location: "Bangalore, India"
+    image: "images/alumni/rohit-agarwal.jpg"
+    linkedin: "https://linkedin.com/in/rohit-agarwal-security"
+    github: "https://github.com/rohit-security"
+
+  - name: "Sneha Iyer"
+    batch: "2020-2024"
+    graduation_year: 2024
+    current_role: "Technical Writer"
+    company: "GitLab"
+    domain: "Documentation"
+    location: "Remote"
+    image: "images/alumni/sneha-iyer.jpg"
+    linkedin: "https://linkedin.com/in/sneha-iyer-writer"
+    github: "https://github.com/sneha-docs"
+    message: "Loved creating documentation for CC Club projects - turned it into a career!"
+
+# NOTES FOR MAINTAINING THIS FILE:
+#
+# 1. STRUCTURE:
+#    Keep alumni organized by batch/graduation year for easier filtering
+#    Most recent batches first
+#
+# 2. REQUIRED FIELDS:
+#    - name: Full name
+#    - batch: "Start Year-End Year" (e.g., "2020-2024")
+#    - graduation_year: YYYY format
+#    - current_role: Job title
+#    - company: Current employer
+#    - domain: Area of work (Backend, Frontend, ML, etc.)
+#    - image: Path to photo
+#    - linkedin: Full LinkedIn profile URL
+#
+# 3. OPTIONAL FIELDS:
+#    - github: GitHub profile (if publicly active)
+#    - location: City, Country
+#    - message: Brief advice/message for juniors (50-150 words)
+#
+# 4. IMAGES:
+#    - Place in static/images/alumni/
+#    - Recommended: 300x300px, professional photo
+#    - Format: JPG or PNG
+#    - Naming: firstname-lastname.jpg (lowercase, hyphenated)
+#
+# 5. PRIVACY:
+#    Only include information alumni have explicitly shared
+#    Don't add alumni without their consent
+#
+# 6. UPDATING:
+#    - Add new graduates annually (May/June)
+#    - Update current roles when notified
+#    - Remove entries if alumni request
+#
+# 7. DOMAINS (for filtering):
+#    Use consistent naming:
+#    - "Backend Development"
+#    - "Frontend Development"
+#    - "Full Stack"
+#    - "Machine Learning"
+#    - "Data Science"
+#    - "DevOps"
+#    - "Mobile Development"
+#    - "Product Management"
+#    - "Cybersecurity"
+#    - "Research"
+#    - "Documentation"
+#    etc.
+#
+# 8. VERIFICATION:
+#    Periodically verify LinkedIn profiles are still valid
+#    Update roles if alumni reach out with changes
+#
+# 9. DIVERSITY:
+#    Include alumni from:
+#    - Different branches (not just CS)
+#    - Different career paths (not just SDE)
+#    - Different companies (startups, big tech, academia)
+#    - Different locations (India and abroad)
+#
+# 10. HOW TO ADD NEW ALUMNI:
+#     a. Reach out to graduating students
+#     b. Send an alumni information form
+#     c. Collect: name, batch, role, company, LinkedIn, photo
+#     d. Add to this file under appropriate graduation year
+#     e. Verify all information is correct
+#     f. Get explicit consent before adding

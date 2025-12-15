@@ -1,0 +1,283 @@
+# ContriHub 2025 - Recognition Recipients
+# This file contains information about recognized contributors
+# Following our inclusive, non-competitive philosophy
+
+# Recognition Categories
+# Each category highlights a different type of contribution
+# Multiple recipients per category - this is appreciation, not competition
+
+recognitions:
+  
+  # ==================== OUTSTANDING FIRST-TIME CONTRIBUTORS ====================
+  # For beginners who showed exceptional learning journey
+  
+  - category: "Outstanding First-Time Contributors"
+    icon: "🌟"
+    description: "Remarkable first contributions demonstrating quality and enthusiasm"
+    recipients:
+      - name: "Ananya Sharma"
+        github: "ananya-dev"
+        year: "2nd Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/ananya-sharma.jpg"
+        summary: "Made 8 high-quality PRs with excellent documentation. Fixed complex CSS bugs affecting mobile users."
+        contributions:
+          - "Fixed 5 responsive design issues"
+          - "Added comprehensive setup guide"
+          - "Improved accessibility of forms"
+        
+      - name: "Vikram Patel"
+        github: "vikram-codes"
+        year: "1st Year"
+        branch: "ECE"
+        photo: "images/contrihub/2025/vikram-patel.jpg"
+        summary: "Fixed 5 critical bugs affecting search functionality. Impressive debugging skills for a first-timer."
+        contributions:
+          - "Fixed memory leak in search"
+          - "Improved search performance"
+          - "Added search result caching"
+
+      - name: "Sneha Desai"
+        github: "sneha-first-contrib"
+        year: "2nd Year"
+        branch: "IT"
+        photo: "images/contrihub/2025/sneha-desai.jpg"
+        summary: "Created comprehensive contribution guide that helped 30+ other contributors."
+        contributions:
+          - "Wrote detailed contribution guide"
+          - "Created video tutorial"
+          - "Answered 50+ questions on Discord"
+
+      - name: "Rohit Kumar"
+        github: "rohit-newbie"
+        year: "1st Year"
+        branch: "ME"
+        photo: "images/contrihub/2025/rohit-kumar.jpg"
+        summary: "As a non-CS student, impressed everyone with Python automation scripts."
+        contributions:
+          - "Created data migration tool"
+          - "Automated repetitive tasks"
+          - "Saved 10+ hours of manual work"
+
+      - name: "Kavya Menon"
+        github: "kavya-first"
+        year: "2nd Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/kavya-menon.jpg"
+        summary: "Made consistent, thoughtful contributions despite being completely new to open source."
+        contributions:
+          - "Fixed 8 UI inconsistencies"
+          - "Added dark mode toggle"
+          - "Improved user experience"
+
+  # ==================== MOST IMPACTFUL CONTRIBUTIONS ====================
+  # Features/fixes that significantly improved projects
+  
+  - category: "Most Impactful Contributions"
+    icon: "💎"
+    description: "Contributions that significantly improved user experience and functionality"
+    recipients:
+      - name: "Arjun Sharma"
+        github: "arjun-impact"
+        year: "3rd Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/arjun-sharma.jpg"
+        summary: "Built alumni search feature now used by 200+ daily visitors. Reduced page load time by 40%."
+        contributions:
+          - "Implemented advanced search with filters"
+          - "Optimized database queries"
+          - "Added pagination for better performance"
+
+      - name: "Priya Agarwal"
+        github: "priya-impact"
+        year: "4th Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/priya-agarwal.jpg"
+        summary: "Real-time notification system increased user engagement by 60%."
+        contributions:
+          - "Implemented WebSocket notifications"
+          - "Built notification preferences"
+          - "Added email digest feature"
+
+      - name: "Karan Mehta"
+        github: "karan-features"
+        year: "3rd Year"
+        branch: "IT"
+        photo: "images/contrihub/2025/karan-mehta.jpg"
+        summary: "QR code check-in system transformed event management. Used in 10+ events already."
+        contributions:
+          - "Built QR code generator"
+          - "Implemented check-in scanner"
+          - "Created analytics dashboard"
+
+      - name: "Divya Singh"
+        github: "divya-automation"
+        year: "3rd Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/divya-singh.jpg"
+        summary: "Certificate automation saved 50+ hours of manual work for event organizers."
+        contributions:
+          - "Automated certificate generation"
+          - "Built email distribution system"
+          - "Created customizable templates"
+
+  # ==================== DOCUMENTATION CHAMPIONS ====================
+  # Made documentation clearer and more accessible
+  
+  - category: "Documentation Champions"
+    icon: "📚"
+    description: "Exceptional documentation that helps others learn and contribute"
+    recipients:
+      - name: "Meera Nair"
+        github: "meera-docs"
+        year: "2nd Year"
+        branch: "IT"
+        photo: "images/contrihub/2025/meera-nair.jpg"
+        summary: "Rewrote setup guides reducing setup time from 2 hours to 15 minutes."
+        contributions:
+          - "Created step-by-step setup guides"
+          - "Added troubleshooting section"
+          - "Made 5 video tutorials"
+
+      - name: "Rahul Verma"
+        github: "rahul-technical-writer"
+        year: "3rd Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/rahul-verma.jpg"
+        summary: "API documentation is now used as example of good docs in other projects."
+        contributions:
+          - "Documented all API endpoints"
+          - "Added code examples"
+          - "Created interactive API playground"
+
+      - name: "Anjali Kapoor"
+        github: "anjali-docs"
+        year: "2nd Year"
+        branch: "ECE"
+        photo: "images/contrihub/2025/anjali-kapoor.jpg"
+        summary: "Made DSA problem explanations beginner-friendly and comprehensive."
+        contributions:
+          - "Rewrote 25 problem explanations"
+          - "Added visual diagrams"
+          - "Created solution templates"
+
+  # ==================== BEST QUALITY CONTRIBUTIONS ====================
+  # Well-tested, well-documented, thoughtfully implemented
+  
+  - category: "Best Quality Contributions"
+    icon: "🎨"
+    description: "Exemplary code quality, testing, and documentation"
+    recipients:
+      - name: "Siddharth Sharma"
+        github: "siddharth-quality"
+        year: "4th Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/siddharth-sharma.jpg"
+        summary: "Every PR included comprehensive tests and documentation. Set the standard for quality."
+        contributions:
+          - "Increased test coverage by 25%"
+          - "Added integration tests"
+          - "Documented testing best practices"
+
+      - name: "Nisha Gupta"
+        github: "nisha-clean-code"
+        year: "3rd Year"
+        branch: "IT"
+        photo: "images/contrihub/2025/nisha-gupta.jpg"
+        summary: "Refactored legacy code with clean patterns and comprehensive documentation."
+        contributions:
+          - "Refactored authentication module"
+          - "Improved code readability"
+          - "Added inline documentation"
+
+  # ==================== COMMUNITY SUPPORT EXCELLENCE ====================
+  # Helped other contributors, mentored beginners
+  
+  - category: "Community Support Excellence"
+    icon: "🤝"
+    description: "Outstanding mentorship and community support"
+    recipients:
+      - name: "Rohan Kumar"
+        github: "rohan-mentor"
+        year: "4th Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/rohan-kumar.jpg"
+        summary: "Mentored 10+ first-time contributors. Reviewed 50+ PRs with detailed, constructive feedback."
+        contributions:
+          - "Conducted 1-on-1 mentorship sessions"
+          - "Created beginner-friendly issues"
+          - "Always available on Discord"
+
+      - name: "Shreya Patel"
+        github: "shreya-helper"
+        year: "3rd Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/shreya-patel.jpg"
+        summary: "Answered 100+ questions on Discord. Known as the 'problem solver' of ContriHub."
+        contributions:
+          - "Helped debug countless issues"
+          - "Created troubleshooting guides"
+          - "Built supportive community culture"
+
+  # ==================== CONSISTENT CONTRIBUTORS ====================
+  # Regular, steady contributions throughout event
+  
+  - category: "Consistent Contributors"
+    icon: "⚡"
+    description: "Sustained engagement and regular contributions throughout the event"
+    recipients:
+      - name: "Aditya Joshi"
+        github: "aditya-consistent"
+        year: "3rd Year"
+        branch: "CSE"
+        photo: "images/contrihub/2025/aditya-joshi.jpg"
+        summary: "Made contributions every week. 15 PRs merged across 5 different repositories."
+        
+      - name: "Riya Malhotra"
+        github: "riya-steady"
+        year: "2nd Year"
+        branch: "IT"
+        photo: "images/contrihub/2025/riya-malhotra.jpg"
+        summary: "Balanced academics and contributions perfectly. Steady, quality work throughout."
+
+      - name: "Vishal Reddy"
+        github: "vishal-regular"
+        year: "3rd Year"
+        branch: "ECE"
+        photo: "images/contrihub/2025/vishal-reddy.jpg"
+        summary: "Committed to both code and docs. Versatile contributor across multiple areas."
+
+# NOTES FOR MAINTAINING:
+#
+# 1. PHILOSOPHY: This is APPRECIATION, not competition
+#    - No rankings within categories
+#    - Multiple recipients per category
+#    - Equal visual treatment for all
+#
+# 2. SELECTION CRITERIA:
+#    - Quality over quantity
+#    - Impact on community
+#    - Learning journey for first-timers
+#    - Diversity of contribution types
+#
+# 3. CATEGORIES: Designed to value different contribution types equally
+#    - Code, documentation, testing, mentorship all matter
+#
+# 4. SUMMARY: Focus on impact and contribution, not numbers
+#    - Avoid: "Made 50 PRs"
+#    - Prefer: "Fixed critical bugs affecting 200 users"
+#
+# 5. PHOTOS: Professional but friendly photos
+#    - Place in static/images/contrihub/YEAR/
+#    - 300x300px recommended
+#
+# 6. UPDATING:
+#    - Create new file each year (2026.yaml, 2027.yaml)
+#    - Don't modify past years' recognitions
+#
+# 7. PRIVACY: Only include with explicit consent
+#
+# 8. BALANCE:
+#    - Recognize diverse years (1st to 4th)
+#    - Recognize diverse branches (not just CS)
+#    - Recognize diverse contribution types

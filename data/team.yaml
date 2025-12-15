@@ -1,0 +1,191 @@
+# Team Data for Computer Coding Club
+# This file contains information about current team members
+# Update this file when team changes (typically annually)
+
+# FACULTY ADVISORS
+# Faculty members who guide and support club activities
+faculty:
+  - name: "Prof. Rajesh Kumar"
+    designation: "Faculty Advisor"
+    department: "Computer Science & Engineering"
+    image: "images/team/prof-rajesh-kumar.jpg"
+    email: "rajesh.kumar@college.edu"
+    bio: "Passionate about fostering coding culture and supporting student initiatives"
+
+  - name: "Dr. Priya Sharma"
+    designation: "Co-Faculty Advisor"
+    department: "Information Technology"
+    image: "images/team/dr-priya-sharma.jpg"
+    email: "priya.sharma@college.edu"
+    bio: "Research interests in machine learning and student mentorship"
+
+# COORDINATORS
+# Senior members (usually 4th year) who lead the club
+coordinators:
+  - name: "Arjun Mehta"
+    role: "Senior Coordinator"
+    year: "4th Year"
+    branch: "Computer Science"
+    image: "images/team/arjun-mehta.jpg"
+    linkedin: "https://linkedin.com/in/arjun-mehta-dev"
+    github: "https://github.com/arjun-dev"
+    email: "arjun.mehta@students.college.edu"
+    bio: "Full-stack developer passionate about open source and community building"
+    interests: ["Web Development", "Open Source", "DevOps"]
+
+  - name: "Priya Singh"
+    role: "Senior Coordinator"
+    year: "4th Year"
+    branch: "Computer Science"
+    image: "images/team/priya-singh.jpg"
+    linkedin: "https://linkedin.com/in/priya-singh-codes"
+    github: "https://github.com/priya-codes"
+    email: "priya.singh@students.college.edu"
+    bio: "ML enthusiast and hackathon organizer extraordinaire"
+    interests: ["Machine Learning", "Data Science", "Event Management"]
+
+  - name: "Rahul Kumar"
+    role: "Co-Coordinator"
+    year: "4th Year"
+    branch: "Information Technology"
+    image: "images/team/rahul-kumar.jpg"
+    linkedin: "https://linkedin.com/in/rahul-kumar-tech"
+    github: "https://github.com/rahul-tech"
+    email: "rahul.kumar@students.college.edu"
+    bio: "DevOps engineer passionate about cloud technologies and automation"
+    interests: ["Cloud Computing", "Docker", "CI/CD"]
+
+# EXECUTIVE MEMBERS
+# Active contributors (2nd and 3rd year students)
+executives:
+  - name: "Sneha Desai"
+    role: "Executive Member"
+    year: "3rd Year"
+    branch: "Computer Science"
+    image: "images/team/sneha-desai.jpg"
+    linkedin: "https://linkedin.com/in/sneha-desai"
+    github: "https://github.com/sneha-dev"
+    bio: "Frontend developer and UI/UX enthusiast"
+    interests: ["React", "UI/UX Design", "Accessibility"]
+
+  - name: "Vikram Patel"
+    role: "Executive Member"
+    year: "3rd Year"
+    branch: "Computer Science"
+    image: "images/team/vikram-patel.jpg"
+    linkedin: "https://linkedin.com/in/vikram-patel-dev"
+    github: "https://github.com/vikram-codes"
+    bio: "Backend developer and database optimization expert"
+    interests: ["Node.js", "Databases", "System Design"]
+
+  - name: "Ananya Sharma"
+    role: "Executive Member"
+    year: "2nd Year"
+    branch: "Electronics"
+    image: "images/team/ananya-sharma.jpg"
+    linkedin: "https://linkedin.com/in/ananya-sharma"
+    github: "https://github.com/ananya-dev"
+    bio: "Aspiring full-stack developer, first-time open source contributor"
+    interests: ["Web Development", "IoT", "Open Source"]
+
+  - name: "Karan Mehta"
+    role: "Executive Member"
+    year: "3rd Year"
+    branch: "Information Technology"
+    image: "images/team/karan-mehta.jpg"
+    linkedin: "https://linkedin.com/in/karan-mehta"
+    github: "https://github.com/karan-dev"
+    bio: "Competitive programmer and algorithm enthusiast"
+    interests: ["Competitive Programming", "Algorithms", "Problem Solving"]
+
+  - name: "Divya Gupta"
+    role: "Executive Member"
+    year: "2nd Year"
+    branch: "Computer Science"
+    image: "images/team/divya-gupta.jpg"
+    linkedin: "https://linkedin.com/in/divya-gupta-ml"
+    github: "https://github.com/divya-ml"
+    bio: "Machine learning enthusiast and data science learner"
+    interests: ["Machine Learning", "Python", "Data Analysis"]
+
+  - name: "Aditya Joshi"
+    role: "Executive Member"
+    year: "3rd Year"
+    branch: "Computer Science"
+    image: "images/team/aditya-joshi.jpg"
+    linkedin: "https://linkedin.com/in/aditya-joshi"
+    github: "https://github.com/aditya-codes"
+    bio: "Mobile app developer and Flutter advocate"
+    interests: ["Flutter", "Mobile Development", "Firebase"]
+
+  - name: "Meera Nair"
+    role: "Executive Member"
+    year: "2nd Year"
+    branch: "Information Technology"
+    image: "images/team/meera-nair.jpg"
+    linkedin: "https://linkedin.com/in/meera-nair"
+    github: "https://github.com/meera-dev"
+    bio: "Technical writer and documentation enthusiast"
+    interests: ["Technical Writing", "Documentation", "Community Building"]
+
+  - name: "Siddharth Verma"
+    role: "Executive Member"
+    year: "3rd Year"
+    branch: "Mechanical Engineering"
+    image: "images/team/siddharth-verma.jpg"
+    linkedin: "https://linkedin.com/in/siddharth-verma"
+    github: "https://github.com/siddharth-codes"
+    bio: "From mechanical to code - exploring software development"
+    interests: ["Python", "Automation", "CAD Software"]
+
+  - name: "Nisha Gupta"
+    role: "Executive Member"
+    year: "2nd Year"
+    branch: "Electrical Engineering"
+    image: "images/team/nisha-gupta.jpg"
+    linkedin: "https://linkedin.com/in/nisha-gupta"
+    github: "https://github.com/nisha-dev"
+    bio: "Interested in embedded systems and IoT"
+    interests: ["Embedded Systems", "IoT", "Arduino"]
+
+  - name: "Rohan Kapoor"
+    role: "Executive Member"
+    year: "3rd Year"
+    branch: "Computer Science"
+    image: "images/team/rohan-kapoor.jpg"
+    linkedin: "https://linkedin.com/in/rohan-kapoor"
+    github: "https://github.com/rohan-dev"
+    bio: "Cybersecurity enthusiast and ethical hacker"
+    interests: ["Cybersecurity", "Penetration Testing", "Network Security"]
+
+# NOTES FOR UPDATING:
+# 
+# 1. IMAGE PATHS: Place team member photos in static/images/team/
+#    - Recommended size: 400x400px
+#    - Format: JPG or PNG
+#    - File naming: firstname-lastname.jpg (lowercase, hyphenated)
+#
+# 2. SOCIAL LINKS: Always use full URLs including https://
+#
+# 3. YEAR: Update at the beginning of each academic year
+#
+# 4. ROLES:
+#    - Faculty Advisor / Co-Faculty Advisor
+#    - Senior Coordinator (4th year leaders)
+#    - Coordinator (3rd year leaders)
+#    - Co-Coordinator
+#    - Executive Member (active contributors)
+#
+# 5. INTERESTS: Keep to 2-4 items, be specific
+#
+# 6. BIO: One sentence, 10-20 words, highlight personality/passion
+#
+# 7. EMAIL: Use official student/faculty email addresses
+#
+# 8. WHEN TO UPDATE:
+#    - At the start of each academic year (major update)
+#    - When coordinators graduate (remove, move to alumni)
+#    - When new executives join
+#    - When roles change mid-year
+#
+# 9. ORDER: Keep coordinators by seniority, executives alphabetically or by year
