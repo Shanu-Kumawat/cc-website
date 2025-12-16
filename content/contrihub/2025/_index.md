@@ -1,20 +1,13 @@
 +++
 title = "ContriHub 2025"
 description = "A month-long celebration of open source with 45 participants making 120+ contributions across 8 repositories"
-template = "contrihub-event.html"
+template = "contrihub_event.html"
+sort_by = "date"
+weight = 2
 
 [extra]
-contrihub_year = "2025"
+data_year = "2025"
 status = "completed"
-event_year = 2025
-start_date = "October 15, 2025"
-end_date = "November 15, 2025"
-participants = 45
-merged_prs = 120
-repositories_count = 8
-poster = "images/contrihub/2025-poster.jpg"
-tags = ["contrihub", "open-source", "2025", "completed"]
-categories = ["ContriHub", "Past Events"]
 +++
 
 # ContriHub 2025

@@ -1,0 +1,12 @@
+stories:
+  - id: "rohan-story"
+    contributor:
+      name: "Rohan Gupta"
+      github: "rohan-g"
+      year: "3rd Year"
+      branch: "CSE"
+      photo: ""
+      linkedin: "#"
+    title: "Why I started maintaining"
+    story_type: "Maintainer"
+    content: "I realized that maintaining code is just as important as writing it..."

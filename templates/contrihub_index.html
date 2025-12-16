@@ -1,0 +1,105 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {# Standard Section Header #}
+    <div class="mb-12 pb-4 border-b border-gray-500/15">
+        <h1 class="flex items-center gap-3">
+            {{ section.title }}
+            {% if section.extra.badge %}
+                <span class="text-sm font-normal px-2 py-0.5 border border-gray-500/30 rounded">{{ section.extra.badge }}</span>
+            {% endif %}
+        </h1>
+        <p class="text-gray-500">{{ section.description }}</p>
+    </div>
+
+    {# Main Content Area #}
+    <div class="mt-12">
+        
+        {# 1. Find the Upcoming/Current Event (Top Priority) #}
+        {% set upcoming_event = false %}
+        {% for path in section.subsections %}
+            {% set subsection = get_section(path=path) %}
+            {% if subsection.extra.status == "upcoming" or subsection.extra.status == "active" %}
+                {% set_global upcoming_event = subsection %}
+            {% endif %}
+        {% endfor %}
+
+        {% if upcoming_event %}
+            {% set year = upcoming_event.extra.data_year %}
+            {% set event_data = load_data(path="data/contrihub/" ~ year ~ "/event.yaml") %}
+            
+            <div class="card bg-base-200 shadow-xl border border-primary/20 mb-16">
+                <div class="card-body">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <div class="badge badge-primary mb-2">Next Event</div>
+                            <h2 class="card-title text-3xl">{{ event_data.event.name }}</h2>
+                            <p class="text-lg text-gray-400">{{ event_data.event.tagline }}</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm text-gray-500">Starts On</div>
+                            <div class="font-mono text-xl">{{ event_data.event.start_date | date(format="%B %d, %Y") }}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <p class="mb-6">{{ event_data.event.description }}</p>
+                    
+                    <div class="card-actions justify-end">
+                        <a href="{{ upcoming_event.permalink }}" class="btn btn-primary">
+                            View Details & Register
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Render Markdown Content #}
+        <div class="prose max-w-none mb-16">
+            {{ section.content | safe }}
+        </div>
+
+        {# 2. Past Events Archive #}
+        <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+            📜 Event Archive
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {% for path in section.subsections %}
+                {% set subsection = get_section(path=path) %}
+                {% if subsection.extra.status == "completed" %}
+                    {% set year = subsection.extra.data_year %}
+                    {% set event_data = load_data(path="data/contrihub/" ~ year ~ "/event.yaml") %}
+                    
+                    <a href="{{ subsection.permalink }}" class="card bg-base-200 hover:bg-base-300 transition border border-gray-500/10 hover:border-gray-500/30">
+                        <div class="card-body">
+                            <div class="flex justify-between items-start">
+                                <h3 class="card-title text-xl">{{ event_data.event.name }}</h3>
+                                <span class="badge badge-ghost">{{ year }}</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mb-4">{{ event_data.event.tagline }}</p>
+                            
+                            <div class="stats stats-vertical lg:stats-horizontal shadow bg-base-100/50 text-xs">
+                                <div class="stat p-2">
+                                    <div class="stat-title">Participants</div>
+                                    <div class="stat-value text-lg">{{ event_data.event.participants }}</div>
+                                </div>
+                                <div class="stat p-2">
+                                    <div class="stat-title">PRs Merged</div>
+                                    <div class="stat-value text-lg">{{ event_data.event.merged_prs }}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 text-right text-sm text-primary">
+                                View Recap →
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock content %}

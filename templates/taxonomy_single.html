@@ -5,36 +5,76 @@
 {% endblock header %}
 
 {% block content %}
-    <div class="mb-12 pb-4 border-b border-gray-500/15">
-        <h1>{{ term.name }}</h1>
-        <p class="text-gray-500">{{ taxonomy.name | capitalize }}: {{ term.name }}</p>
+    <div class="mb-8 pb-4 border-b border-gray-500/15">
+        <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+            <a href="/blog" class="hover:text-primary">Blog</a>
+            <span>/</span>
+            <span>{{ taxonomy.name | capitalize }}</span>
+        </div>
+        <h1 class="flex items-center gap-3">
+            <span class="opacity-50">#</span>{{ term.name }}
+        </h1>
+        <p class="text-gray-500">Showing all posts tagged with "{{ term.name }}"</p>
     </div>
 
     {% if term.pages %}
-    <div class="not-prose">
-        <div class="space-y-6">
-            {% for page in term.pages %}
-            <article class="card bg-base-200 shadow-lg hover:shadow-xl transition-shadow">
+    <div class="grid gap-8 mt-8">
+        {% for page in term.pages %}
+            <article class="card bg-base-200 shadow-xl border border-gray-500/15 transition hover:border-gray-500/40">
                 <div class="card-body">
                     <h2 class="card-title">
-                        <a href="{{ page.permalink }}" class="hover:text-primary">
-                            {{ page.title }}
-                        </a>
-                    </h2>
-                    {% if page.description %}
-                    <p class="text-gray-600">{{ page.description }}</p>
-                    {% endif %}
-                    <div class="text-sm text-gray-500">
-                        {% if page.date %}
-                        <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                        <a href="{{ page.permalink }}" class="hover:text-primary transition-colors">{{ page.title }}</a>
+                        {% if page.extra.badge %}
+                            <div class="badge badge-secondary">{{ page.extra.badge }}</div>
                         {% endif %}
+                    </h2>
+                    <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-2 items-center">
+                        {% if page.date %}
+                            <span>{{ page.date | date(format="%B %d, %Y") }}</span>
+                        {% endif %}
+                        
+                        {% if page.extra.reading_time or page.reading_time %}
+                            <span>• {{ page.extra.reading_time | default(value=page.reading_time) }} min read</span>
+                        {% endif %}
+
+                        {% if page.extra.author %}
+                            <span>• by {{ page.extra.author }}</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        {# Handle Categories #}
+                        {% set categories = page.taxonomies.categories | default(value=page.extra.categories | default(value=[])) %}
+                        {% for cat in categories %}
+                            <span class="badge badge-primary badge-outline badge-sm">{{ cat }}</span>
+                        {% endfor %}
+
+                        {# Handle Tags #}
+                        {% set tags = page.taxonomies.tags | default(value=page.extra.tags | default(value=[])) %}
+                        {% for tag in tags %}
+                            <span class="badge badge-ghost badge-outline badge-sm">#{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <p class="text-base-content/80">
+                        {% if page.description %}
+                            {{ page.description }}
+                        {% elif page.summary %}
+                            {{ page.summary | safe }}
+                        {% else %}
+                            {{ page.content | striptags | truncate(length=200) }}
+                        {% endif %}
+                    </p>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="{{ page.permalink }}" class="btn btn-primary btn-sm">Read More</a>
                     </div>
                 </div>
             </article>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
     {% else %}
-    <p class="text-gray-500">No posts found in this {{ taxonomy.name }}.</p>
+    <div class="alert alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>No posts found in this {{ taxonomy.name }}.</span>
+    </div>
     {% endif %}
 {% endblock content %}

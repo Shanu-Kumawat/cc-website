@@ -1,0 +1,248 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if section.extra.data_year %}
+        {% set year = section.extra.data_year %}
+    {% else %}
+        {% set year = page.extra.data_year %}
+    {% endif %}
+
+    {% set data = load_data(path="data/impact/" ~ year ~ "/impact.yaml") %}
+
+    {# Header Section #}
+    <div class="mb-8 pb-4 border-b border-gray-500/15">
+        <h1 class="flex items-center gap-3">
+            Work & Impact
+            {% if section.extra.badge %}
+                <span class="text-sm font-normal px-2 py-0.5 border border-gray-500/30 rounded">{{ section.extra.badge }}</span>
+            {% endif %}
+        </h1>
+        <p class="text-gray-500">{{ data.summary }}</p>
+    </div>
+
+    {# Controls Section #}
+    <div class="flex justify-end mb-8">
+        <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-sm btn-outline gap-2">
+                <span>Year: {{ year }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/> </svg>
+            </label>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-52">
+                <li><a href="/impact" class="{% if year == 2025 %}active{% endif %}">2025 (Current)</a></li>
+                <li><a href="/impact/2024" class="{% if year == 2024 %}active{% endif %}">2024</a></li>
+            </ul>
+        </div>
+    </div>
+
+    {# Stats Grid #}
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+        {% for stat in data.stats %}
+        <div class="stat bg-base-200 rounded-lg p-4">
+            <div class="stat-figure text-primary opacity-50">
+                <i class="fa {{ stat.icon }} text-2xl"></i>
+            </div>
+            <div class="stat-title text-xs uppercase tracking-wider">{{ stat.label }}</div>
+            <div class="stat-value text-2xl">{{ stat.value }}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="space-y-20">
+        
+        {# Projects Section #}
+        <section>
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+                🚀 Club Projects
+            </h2>
+            <div class="grid grid-cols-1 gap-8">
+                {% for project in data.projects %}
+                <div class="card bg-base-200 border border-gray-500/10">
+                    <div class="card-body">
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-4">
+                            <div>
+                                <h3 class="card-title text-xl mb-1">{{ project.title }}</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    {% for tag in project.tags %}
+                                    <span class="badge badge-sm badge-outline">{{ tag }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-400 mb-4">{{ project.description }}</p>
+                        
+                        <div class="flex items-center justify-end mt-4 pt-4 border-t border-gray-500/10">
+                            <div class="flex gap-3">
+                                {% if project.link %}
+                                <a href="{{ project.link }}" class="link link-hover text-primary text-sm">View Project ↗</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        {# Events Section #}
+        <section>
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold flex items-center gap-2">
+                    📅 Major Events
+                </h2>
+                <a href="/events" class="btn btn-sm btn-ghost">View All Events →</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {% for event in data.events %}
+                <a href="{{ event.url | default(value='/events') }}" class="card bg-base-200 border border-gray-500/10 hover:border-primary/50 transition-colors group">
+                    <div class="card-body">
+                        <div class="flex justify-between items-start">
+                            <h3 class="card-title text-lg group-hover:text-primary transition-colors">{{ event.title }}</h3>
+                            <span class="text-xs bg-base-300 px-2 py-1 rounded">{{ event.date }}</span>
+                        </div>
+                        <p class="text-sm mb-4 mt-2">{{ event.description }}</p>
+                        <div class="card-actions justify-end mt-auto">
+                            <span class="text-xs text-primary flex items-center gap-1">
+                                View Details <i class="fa fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        {# Initiatives Section #}
+        <section>
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+                🌱 Community Initiatives
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for init in data.initiatives %}
+                <div class="card bg-base-200 border border-gray-500/10">
+                    <div class="card-body">
+                        <div class="mb-4 text-primary text-2xl">
+                            <i class="fa {{ init.icon }}"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">{{ init.title }}</h3>
+                        <p class="text-sm text-gray-400 mb-4">{{ init.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        {# Awards Section #}
+        <section>
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+                🏆 Awards & Recognition
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {% for award in data.awards %}
+                <div class="card bg-base-200 border border-gray-500/10">
+                    <div class="card-body flex flex-row items-center gap-4">
+                        <div class="text-yellow-500 text-3xl">
+                            <i class="fa fa-trophy"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">{{ award.title }}</h3>
+                            <div class="text-sm text-gray-500">{{ award.organization }} • {{ award.date }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+
+
+        {# Collaborations Section #}
+        <section>
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+                🤝 Collaborations & Partnerships
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-400">Industry Partners</h3>
+                    <ul class="space-y-4">
+                        {% for partner in data.collaborations.industry %}
+                        <li>
+                            <div class="font-bold">{{ partner.name }}</div>
+                            <div class="text-sm text-gray-500">{{ partner.description }}</div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-400">Academic Collaborations</h3>
+                    <ul class="space-y-4">
+                        {% for collab in data.collaborations.academic %}
+                        <li>
+                            <div class="font-bold">{{ collab.name }}</div>
+                            <div class="text-sm text-gray-500">{{ collab.description }}</div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        {# Impact by Numbers Section #}
+        <section class="text-center py-8">
+            <h2 class="text-2xl font-bold mb-8">Impact by Numbers</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-3xl font-bold text-primary">200+</div>
+                    <div class="text-sm text-gray-500">Active Members</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">50+</div>
+                    <div class="text-sm text-gray-500">Events Since 2020</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">100+</div>
+                    <div class="text-sm text-gray-500">Blog Posts</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">15+</div>
+                    <div class="text-sm text-gray-500">Open Source Projects</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">500+</div>
+                    <div class="text-sm text-gray-500">Students Trained</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">₹5L+</div>
+                    <div class="text-sm text-gray-500">Prizes Distributed</div>
+                </div>
+                <div class="col-span-2 md:col-span-2">
+                    <div class="text-3xl font-bold text-primary">100+</div>
+                    <div class="text-sm text-gray-500">Alumni at Top Companies</div>
+                </div>
+            </div>
+        </section>
+
+        {# Call to Action Section #}
+        <section class="bg-base-200 rounded-xl p-8 text-center mt-12">
+            <h2 class="text-2xl font-bold mb-4">Want to Contribute?</h2>
+            <p class="text-gray-400 mb-6">Interested in contributing to our projects or organizing events?</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://discord.gg/ccclub" class="btn btn-primary gap-2">
+                    <i class="fab fa-discord"></i> Join Discord
+                </a>
+                <a href="/events" class="btn btn-outline gap-2">
+                    <i class="fa fa-calendar"></i> Attend Meetups
+                </a>
+                <a href="/contrihub" class="btn btn-outline gap-2">
+                    <i class="fa fa-code-branch"></i> ContriHub
+                </a>
+                <a href="mailto:projects@ccclub.edu" class="btn btn-ghost gap-2">
+                    <i class="fa fa-envelope"></i> Contact Us
+                </a>
+            </div>
+        </section>
+
+    </div>
+{% endblock content %}

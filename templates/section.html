@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+
+{% block header %}
+    {{ macros_header::header(config=config, lang=lang, section=section) }}
+{% endblock header %}
+
+{% block content %}
+    <div class="mb-12 pb-4 border-b border-gray-500/15">
+        <h1 class="flex items-center gap-3">
+            {{ section.title }}
+            {% if section.extra.badge %}
+                <span class="text-sm font-normal px-2 py-0.5 border border-gray-500/30 rounded">{{ section.extra.badge }}</span>
+            {% endif %}
+        </h1>
+        <p class="text-gray-500">{{ section.description }}</p>
+    </div>
+    
+    {{ section.content | safe }}
+
+    {# List pages in this section #}
+    {% set pages = section.pages %}
+    {% if paginator %}
+        {% set pages = paginator.pages %}
+    {% endif %}
+
+    {% if pages %}
+        <div class="grid gap-8 mt-8">
+            {% for page in pages %}
+                <article class="card bg-base-200 shadow-xl border border-gray-500/15 transition hover:border-gray-500/40">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <a href="{{ page.permalink }}" class="hover:text-primary transition-colors">{{ page.title }}</a>
+                            {% if page.extra.badge %}
+                                <div class="badge badge-secondary">{{ page.extra.badge }}</div>
+                            {% endif %}
+                        </h2>
+                        <div class="text-sm text-gray-500 mb-2">
+                            {% if page.date %}
+                                {{ page.date | date(format="%B %d, %Y") }}
+                            {% endif %}
+                        </div>
+                        <p class="text-base-content/80">
+                            {% if page.description %}
+                                {{ page.description }}
+                            {% elif page.summary %}
+                                {{ page.summary | safe }}
+                            {% else %}
+                                {{ page.content | striptags | truncate(length=200) }}
+                            {% endif %}
+                        </p>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="{{ page.permalink }}" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {# Pagination #}
+    {% if paginator %}
+        <div class="join grid grid-cols-2 mt-8">
+            {% if paginator.previous %}
+                <a href="{{ paginator.previous }}" class="join-item btn btn-outline">Previous page</a>
+            {% else %}
+                <button class="join-item btn btn-outline btn-disabled">Previous page</button>
+            {% endif %}
+            {% if paginator.next %}
+                <a href="{{ paginator.next }}" class="join-item btn btn-outline">Next page</a>
+            {% else %}
+                <button class="join-item btn btn-outline btn-disabled">Next page</button>
+            {% endif %}
+        </div>
+    {% endif %}
+
+{% endblock content %}

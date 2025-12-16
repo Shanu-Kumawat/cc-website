@@ -1,0 +1,141 @@
+{% extends "page.html" %}
+
+{% block content %}
+    {# Title Section #}
+    <div class="mb-12 pb-4 border-b border-gray-500/15">
+        <h1 class="flex items-center gap-3">
+            {{ page.title }}
+            {% if page.extra.badge %}
+                <span class="text-sm font-normal px-2 py-0.5 border border-gray-500/30 rounded">{{ page.extra.badge }}</span>
+            {% endif %}
+        </h1>
+        <p class="text-gray-500">{{ page.description }}</p>
+    </div>
+
+    {# Intro Content #}
+    <div class="mb-16 prose max-w-none">
+        {{ page.content | safe }}
+    </div>
+
+    {% set team = load_data(path="data/team.yaml") %}
+
+    {# Faculty Section #}
+    <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+            🎓 Faculty Advisors
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {% for member in team.faculty %}
+            <div class="card bg-base-200 border border-gray-500/10">
+                <div class="card-body flex flex-row gap-6 items-start">
+                    <div class="avatar">
+                        <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src="{{ member.image }}" alt="{{ member.name }}" />
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="card-title text-lg">{{ member.name }}</h3>
+                        <div class="text-sm text-primary mb-1">{{ member.designation }}</div>
+                        <div class="text-xs text-gray-500 mb-2">{{ member.department }}</div>
+                        <p class="text-sm text-gray-400">{{ member.bio }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# Coordinators Section #}
+    <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+            🌟 Club Coordinators
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for member in team.coordinators %}
+            <div class="card bg-base-200 border border-gray-500/10">
+                <div class="card-body items-center text-center">
+                    <div class="avatar mb-4">
+                        <div class="w-32 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+                            <img src="{{ member.image }}" alt="{{ member.name }}" />
+                        </div>
+                    </div>
+                    <h3 class="card-title text-lg">{{ member.name }}</h3>
+                    <div class="badge badge-outline mb-2">{{ member.role }}</div>
+                    <p class="text-sm text-gray-400 mb-4">{{ member.bio }}</p>
+                    <div class="flex gap-3 mt-auto">
+                        {% if member.linkedin %}
+                        <a href="{{ member.linkedin }}" class="btn btn-circle btn-sm btn-ghost"><i class="fab fa-linkedin"></i></a>
+                        {% endif %}
+                        {% if member.github %}
+                        <a href="{{ member.github }}" class="btn btn-circle btn-sm btn-ghost"><i class="fab fa-github"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# Executives Section #}
+    <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+            ⭐ Executive Members
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {% for member in team.executives %}
+            <div class="card bg-base-200 border border-gray-500/10">
+                <div class="card-body items-center text-center p-4">
+                    <div class="avatar mb-3">
+                        <div class="w-24 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
+                            <img src="{{ member.image }}" alt="{{ member.name }}" />
+                        </div>
+                    </div>
+                    <h3 class="font-bold">{{ member.name }}</h3>
+                    <div class="text-xs text-gray-500 mb-2">{{ member.role }}</div>
+                    <div class="flex gap-2">
+                        {% if member.linkedin %}
+                        <a href="{{ member.linkedin }}" class="text-gray-400 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                        {% endif %}
+                        {% if member.github %}
+                        <a href="{{ member.github }}" class="text-gray-400 hover:text-primary"><i class="fab fa-github"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+        <div>
+            <h2 class="text-xl font-bold mb-4">Want to Join the Team?</h2>
+            <p class="text-gray-400 mb-4">We're always looking for passionate individuals to join our core team! Leadership positions are typically filled at the end of each academic year.</p>
+            <ul class="list-disc list-inside text-sm text-gray-400 space-y-1 mb-6">
+                <li>Active participation in club activities</li>
+                <li>Initiative and leadership skills</li>
+                <li>Technical skills and willingness to teach others</li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-xl font-bold mb-4">Contact the Team</h2>
+            <ul class="space-y-3 text-gray-400">
+                <li class="flex items-center gap-3">
+                    <i class="fa fa-envelope"></i>
+                    <span>ccclub@college.edu</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <i class="fab fa-discord"></i>
+                    <a href="https://discord.gg/ccclub" class="link link-hover">Join our Discord Server</a>
+                </li>
+            </ul>
+            <div class="mt-6">
+                <a href="/alumni" class="btn btn-outline btn-sm gap-2">
+                    View Past Leaders <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

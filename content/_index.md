@@ -2,6 +2,7 @@
 title = "Computer Coding Club"
 description = "Learn, Build, and Grow Together - Official website of Computer Coding Club"
 template = "landing.html"
+sort_by = "weight"
 
 [extra]
 version = "2025"

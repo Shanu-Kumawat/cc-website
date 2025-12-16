@@ -1,0 +1,18 @@
+# ContriHub 2024 Event Data
+event:
+  name: "ContriHub 2024"
+  tagline: "Code for Community"
+  start_date: "2024-10-01"
+  end_date: "2024-10-31"
+  duration: "1 month"
+  participants: 38
+  merged_prs: 95
+  repositories: 6
+  description: "Our foundational open source event focusing on system stability and core tools."
+  status: "completed"
+
+stats:
+  features_added: 10
+  bugs_fixed: 45
+  docs_improved: 20
+  tests_added: 15

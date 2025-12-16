@@ -2,42 +2,19 @@
 title = "Learning Roadmaps"
 description = "Curated learning paths for different technical domains to help you grow systematically"
 sort_by = "weight"
+weight = 6
 template = "section.html"
 
 [extra]
 badge = "UPDATED"
+toc_expand = false
 +++
 
 # Learning Roadmaps
 
 Structured learning paths to help you master different technical domains. Each roadmap includes milestones, resources, time estimates, and project ideas.
 
-## Available Roadmaps
 
-### Frontend & Backend
-
-- [Web Development](/roadmaps/web-development) - Frontend, Backend, and Full Stack
-- [Mobile Development](/roadmaps/mobile-development) - iOS, Android, React Native
-- [DevOps & Cloud](/roadmaps/devops) - CI/CD, Docker, Kubernetes, Cloud platforms
-
-### Algorithms & Problem Solving
-
-- [Data Structures & Algorithms](/roadmaps/dsa) - From basics to advanced
-- [Competitive Programming](/roadmaps/competitive-programming) - Codeforces, CodeChef, Leetcode
-- [System Design](/roadmaps/system-design) - Scalable system architecture
-
-### Data & AI
-
-- [Machine Learning](/roadmaps/machine-learning) - ML fundamentals to deep learning
-- [Data Science](/roadmaps/data-science) - Analytics, visualization, modeling
-- [Natural Language Processing](/roadmaps/nlp) - Text processing and understanding
-
-### Open Source & Career
-
-- [Open Source Contribution](/roadmaps/open-source) - From first PR to maintainer
-- [Interview Preparation](/roadmaps/interview-prep) - Technical interviews at top companies
-
----
 
 ## How to Use These Roadmaps
 

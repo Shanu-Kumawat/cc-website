@@ -1,0 +1,20 @@
+featured_contributions:
+  - id: "legacy-migration"
+    title: "Legacy Codebase Migration"
+    contributor:
+      name: "Rohan Gupta"
+      github: "rohan-g"
+      avatar: ""
+    repository: "cc-website"
+    pr_number: 15
+    pr_url: "#"
+
+  - id: "cli-tool"
+    title: "CC-CLI Tool Initial Release"
+    contributor:
+      name: "Sanya Verma"
+      github: "sanya-v"
+      avatar: ""
+    repository: "cc-cli"
+    pr_number: 3
+    pr_url: "#"

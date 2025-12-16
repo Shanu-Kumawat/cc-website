@@ -1,0 +1,68 @@
+summary: "A look back at the impactful work and community achievements of 2024."
+
+stats:
+  - value: "10+"
+    label: "Projects Completed"
+    icon: "fa-check-circle"
+  - value: "350+"
+    label: "Students Impacted"
+    icon: "fa-users"
+  - value: "8"
+    label: "Workshops Hosted"
+    icon: "fa-chalkboard-teacher"
+  - value: "3"
+    label: "Hackathons Organized"
+    icon: "fa-trophy"
+
+projects:
+  - title: "Library Management System"
+    description: "Automated system for college library book tracking."
+    tags: ["Java", "MySQL", "JSP"]
+    image: "/images/projects/library-sys.jpg"
+    link: "#"
+  - title: "Student Portfolio Generator"
+    description: "Web app to generate professional portfolios for students."
+    tags: ["React", "Node.js", "MongoDB"]
+    image: "/images/projects/portfolio-gen.jpg"
+    link: "#"
+
+events:
+  - title: "Winter Code Fest 2024"
+    date: "Feb 10, 2024"
+    description: "Annual coding festival with competitive programming and debugging contests."
+    image: "/images/events/code-fest-2024.jpg"
+    url: "/events/2024/winter-code-fest"
+  - title: "Intro to AI Workshop"
+    date: "Mar 15, 2024"
+    description: "A beginner-friendly workshop introducing concepts of Artificial Intelligence and Machine Learning."
+    image: "/images/events/ai-workshop.jpg"
+    url: "/events/2024/intro-to-ai"
+
+initiatives:
+  - title: "Code for Cause"
+    description: "Developing software solutions for local NGOs."
+    icon: "fa-heart"
+  - title: "Tech Talk Series"
+    description: "Monthly talks by industry experts on emerging technologies."
+    icon: "fa-microphone"
+
+awards:
+  - title: "Excellence in Community Service"
+    organization: "University Dean's Office"
+    date: "April 2024"
+
+collaborations:
+  industry:
+    - name: "Google Developer Student Club"
+      description: "Joint events and workshops"
+    - name: "Microsoft Learn Student Ambassador"
+      description: "Cloud workshops and resources"
+    - name: "GitHub Campus Expert"
+      description: "Open source initiatives"
+  academic:
+    - name: "Research Projects"
+      description: "Collaboration with CS department on 3 research projects"
+    - name: "Course Integration"
+      description: "DSA platform used in CS102 course"
+    - name: "Faculty Mentorship"
+      description: "Regular guest lectures by faculty"

@@ -2,21 +2,17 @@
 title = "Events"
 description = "Workshops, hackathons, competitions, and meetups organized by Computer Coding Club"
 sort_by = "date"
-template = "section.html"
+weight = 3
+template = "events.html"
 
 [extra]
+toc_expand = true
 badge = "UPDATED"
 +++
 
 # Club Events
 
 The Computer Coding Club organizes a variety of events throughout the year to help students learn, grow, and connect with the tech community. From hands-on workshops to competitive hackathons, there's something for everyone.
-
-## Upcoming Events
-
-Check out what's coming up! Register early as spots fill up quickly.
-
-<!-- Events are organized by year in folders like content/events/2025/ -->
 
 ## Event Categories
 
@@ -34,12 +30,6 @@ Learn from industry professionals, successful alumni, and open source contributo
 
 ### 🤝 Meetups
 Casual networking sessions, study groups, and community building events.
-
-## Past Events
-
-Browse our event archive to see what we've organized:
-
-<!-- Past events can be found in previous year folders like content/events/2024/ -->
 
 ---
 

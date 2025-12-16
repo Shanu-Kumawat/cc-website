@@ -1,0 +1,149 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if section.extra.data_year %}
+        {% set year = section.extra.data_year %}
+        {% set status = section.extra.status %}
+    {% else %}
+        {% set year = page.extra.data_year %}
+        {% set status = page.extra.status %}
+    {% endif %}
+
+    {% set event_data = load_data(path="data/contrihub/" ~ year ~ "/event.yaml") %}
+    {% set featured = load_data(path="data/contrihub/" ~ year ~ "/featured.yaml") %}
+    {% set recognitions = load_data(path="data/contrihub/" ~ year ~ "/recognitions.yaml") %}
+    {% set stories = load_data(path="data/contrihub/" ~ year ~ "/stories.yaml") %}
+
+    {# Header / Hero #}
+    <div class="mb-12 pb-8 border-b border-gray-500/15">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-6">
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <a href="/contrihub" class="text-sm text-gray-500 hover:text-primary">← Back to ContriHub</a>
+                    {% if status == "completed" %}
+                        <span class="badge badge-success badge-outline">Completed</span>
+                    {% else %}
+                        <span class="badge badge-primary">Upcoming</span>
+                    {% endif %}
+                </div>
+                <h1 class="text-4xl font-bold">{{ event_data.event.name }}</h1>
+                <p class="text-xl text-gray-400 mt-2">{{ event_data.event.tagline }}</p>
+            </div>
+            <div class="text-right hidden md:block">
+                <div class="font-mono text-sm text-gray-500">{{ event_data.event.start_date | date(format="%B %d") }} - {{ event_data.event.end_date | date(format="%B %d, %Y") }}</div>
+            </div>
+        </div>
+
+        {# Stats Grid #}
+        {% if status == "completed" %}
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="stat bg-base-200 rounded-lg p-4">
+                <div class="stat-title text-xs uppercase tracking-wider">Participants</div>
+                <div class="stat-value text-2xl">{{ event_data.event.participants }}</div>
+            </div>
+            <div class="stat bg-base-200 rounded-lg p-4">
+                <div class="stat-title text-xs uppercase tracking-wider">Merged PRs</div>
+                <div class="stat-value text-2xl text-primary">{{ event_data.event.merged_prs }}</div>
+            </div>
+            <div class="stat bg-base-200 rounded-lg p-4">
+                <div class="stat-title text-xs uppercase tracking-wider">Repos</div>
+                <div class="stat-value text-2xl">{{ event_data.event.repositories }}</div>
+            </div>
+            <div class="stat bg-base-200 rounded-lg p-4">
+                <div class="stat-title text-xs uppercase tracking-wider">Bugs Fixed</div>
+                <div class="stat-value text-2xl text-secondary">{{ event_data.stats.bugs_fixed }}</div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    {# Main Content #}
+    <div class="space-y-16">
+        
+        {# Description #}
+        <div class="prose max-w-none">
+            <p class="text-lg leading-relaxed">{{ event_data.event.description }}</p>
+        </div>
+
+        {# Featured Contributions #}
+        {% if featured.featured_contributions | length > 0 %}
+        <section>
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                ✨ Featured Contributions
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {% for item in featured.featured_contributions %}
+                <div class="card bg-base-200 border border-gray-500/10">
+                    <div class="card-body">
+                        <h3 class="card-title text-lg">
+                            <a href="{{ item.pr_url }}" class="hover:text-primary transition-colors">
+                                {{ item.title }}
+                            </a>
+                        </h3>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mt-2">
+                            <span class="font-mono bg-base-300 px-2 py-0.5 rounded text-xs">{{ item.repository }}#{{ item.pr_number }}</span>
+                            <span>by {{ item.contributor.name }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {# Recognitions #}
+        {% if recognitions.recognitions | length > 0 %}
+        <section>
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                🏆 Recognitions
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for cat in recognitions.recognitions %}
+                <div class="card bg-base-200 border border-yellow-500/20">
+                    <div class="card-body items-center text-center">
+                        <div class="text-4xl mb-2">{{ cat.icon }}</div>
+                        <h3 class="font-bold text-lg">{{ cat.category }}</h3>
+                        <p class="text-xs text-gray-500 mb-4">{{ cat.description }}</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            {% for recipient in cat.recipients %}
+                            <div class="badge badge-outline">{{ recipient.name }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {# Stories #}
+        {% if stories.stories | length > 0 %}
+        <section>
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                💬 Contributor Stories
+            </h2>
+            <div class="grid grid-cols-1 gap-6">
+                {% for story in stories.stories %}
+                <div class="card bg-base-200">
+                    <div class="card-body">
+                        <div class="flex items-start gap-4">
+                            <div class="avatar placeholder">
+                                <div class="bg-neutral-focus text-neutral-content rounded-full w-12">
+                                    <span class="text-xl">{{ story.contributor.name | truncate(length=1, end="") }}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">"{{ story.title }}"</h3>
+                                <p class="text-sm text-gray-500 mb-2">{{ story.contributor.name }} • {{ story.contributor.year }}</p>
+                                <p class="italic text-gray-400">"{{ story.content | default(value=story.quote) }}"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+    </div>
+{% endblock content %}

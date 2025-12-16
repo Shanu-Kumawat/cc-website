@@ -1,0 +1,175 @@
+{% extends "index.html" %}
+
+{% block header %}
+    {{ macros_header::header(config=config, lang=lang, section=section) }}
+{% endblock header %}
+
+{% block content %}
+    <div class="mb-12 pb-4 border-b border-gray-500/15">
+        <h1 class="flex items-center gap-3">
+            {{ section.title }}
+            {% if section.extra.badge %}
+                <span class="text-sm font-normal px-2 py-0.5 border border-gray-500/30 rounded">{{ section.extra.badge }}</span>
+            {% endif %}
+        </h1>
+        <p class="text-gray-500">{{ section.description }}</p>
+    </div>
+    
+    {% if section.extra.content_position is defined and section.extra.content_position == "bottom" %}
+        {# Render content after the list #}
+    {% else %}
+        {{ section.content | safe }}
+    {% endif %}
+
+    {# Search and Filter Section #}
+    <div class="flex flex-col md:flex-row gap-4 mb-8 items-center justify-between">
+        <div class="flex-1 w-full md:w-auto relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+            <input type="text" id="blog-search-input" placeholder="Filter articles on this page..." class="input input-bordered w-full md:w-80 pl-10" />
+        </div>
+        
+        {# Tag Cloud #}
+        {% set tags = get_taxonomy(kind="tags") %}
+        {% if tags %}
+        <div class="flex flex-wrap gap-2 justify-end">
+            <span class="text-sm text-gray-500 self-center mr-2">Filter by:</span>
+            {% for term in tags.items %}
+                <a href="{{ term.permalink }}" class="badge badge-outline hover:badge-primary transition-colors">
+                    #{{ term.name }}
+                </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    {# List pages in this section #}
+    {% set pages = section.pages %}
+    {% if paginator %}
+        {% set pages = paginator.pages %}
+    {% endif %}
+
+    {% if pages %}
+        {% if section.extra.content_position is defined and section.extra.content_position == "bottom" %}
+            <h2 class="text-2xl font-bold mb-6">Recent Posts</h2>
+        {% endif %}
+        <div class="grid gap-8 mt-8">
+            {% for page in pages %}
+                <article class="card bg-base-200 shadow-xl border border-gray-500/15 transition hover:border-gray-500/40">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <a href="{{ page.permalink }}" class="hover:text-primary transition-colors">{{ page.title }}</a>
+                            {% if page.extra.badge %}
+                                <div class="badge badge-secondary">{{ page.extra.badge }}</div>
+                            {% endif %}
+                        </h2>
+                        <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-2 items-center">
+                            {% if page.date %}
+                                <span>{{ page.date | date(format="%B %d, %Y") }}</span>
+                            {% endif %}
+                            
+                            {% if page.extra.reading_time or page.reading_time %}
+                                <span>• {{ page.extra.reading_time | default(value=page.reading_time) }} min read</span>
+                            {% endif %}
+
+                            {% if page.extra.author %}
+                                <span>• by {{ page.extra.author }}</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            {# Handle Categories #}
+                            {% set categories = page.taxonomies.categories | default(value=page.extra.categories | default(value=[])) %}
+                            {% for cat in categories %}
+                                {% set cat_slug = cat | slugify %}
+                                <a href="/categories/{{ cat_slug }}" class="badge badge-primary badge-outline badge-sm hover:badge-primary hover:text-white transition-colors">{{ cat }}</a>
+                            {% endfor %}
+
+                            {# Handle Tags #}
+                            {% set tags = page.taxonomies.tags | default(value=page.extra.tags | default(value=[])) %}
+                            {% for tag in tags %}
+                                {% set tag_slug = tag | slugify %}
+                                <a href="/tags/{{ tag_slug }}" class="badge badge-ghost badge-outline badge-sm hover:badge-primary transition-colors">#{{ tag }}</a>
+                            {% endfor %}
+                        </div>
+                        <p class="text-base-content/80">
+                            {% if page.description %}
+                                {{ page.description }}
+                            {% elif page.summary %}
+                                {{ page.summary | safe }}
+                            {% else %}
+                                {{ page.content | striptags | truncate(length=200) }}
+                            {% endif %}
+                        </p>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="{{ page.permalink }}" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {# Pagination #}
+    {% if paginator %}
+        <div class="join grid grid-cols-2 mt-8">
+            {% if paginator.previous %}
+                <a href="{{ paginator.previous }}" class="join-item btn btn-outline">Previous page</a>
+            {% else %}
+                <button class="join-item btn btn-outline btn-disabled">Previous page</button>
+            {% endif %}
+            {% if paginator.next %}
+                <a href="{{ paginator.next }}" class="join-item btn btn-outline">Next page</a>
+            {% else %}
+                <button class="join-item btn btn-outline btn-disabled">Next page</button>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if section.extra.content_position is defined and section.extra.content_position == "bottom" %}
+        <div class="mt-16 pt-8 border-t border-gray-500/15">
+            {{ section.content | safe }}
+        </div>
+    {% endif %}
+
+    {% if config.extra.edit_url %}
+    <div class="mt-8 pt-6 border-t border-gray-500/15">
+        <div class="flex flex-wrap items-center gap-4">
+            <a href="{{ config.extra.edit_url }}/content/{{ section.relative_path }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-base-content/60 hover:text-base-content transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                </svg>
+                <span>Edit this page</span>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('blog-search-input');
+            const articles = document.querySelectorAll('article.card');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    
+                    articles.forEach(article => {
+                        const title = article.querySelector('.card-title').textContent.toLowerCase();
+                        const description = article.querySelector('p').textContent.toLowerCase();
+                        const tags = Array.from(article.querySelectorAll('.badge')).map(b => b.textContent.toLowerCase()).join(' ');
+                        
+                        if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
+                            article.style.display = '';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+{% endblock content %}

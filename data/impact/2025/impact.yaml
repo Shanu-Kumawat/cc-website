@@ -1,0 +1,76 @@
+summary: "Showcasing the projects, events, and initiatives driving innovation in 2025."
+
+stats:
+  - value: "15+"
+    label: "Projects Completed"
+    icon: "fa-check-circle"
+  - value: "500+"
+    label: "Students Impacted"
+    icon: "fa-users"
+  - value: "12"
+    label: "Workshops Hosted"
+    icon: "fa-chalkboard-teacher"
+  - value: "5"
+    label: "Hackathons Organized"
+    icon: "fa-trophy"
+
+projects:
+  - title: "Campus Connect App"
+    description: "A mobile application to connect students with alumni and mentors."
+    tags: ["Flutter", "Firebase", "Node.js"]
+    image: "/images/projects/campus-connect.jpg"
+    link: "#"
+  - title: "AI Study Assistant"
+    description: "An AI-powered tool to help students organize their study schedules."
+    tags: ["Python", "TensorFlow", "React"]
+    image: "/images/projects/ai-assistant.jpg"
+    link: "#"
+  - title: "Green Campus Initiative"
+    description: "IoT based system to monitor and optimize energy consumption in campus labs."
+    tags: ["IoT", "Arduino", "C++"]
+    image: "/images/projects/green-campus.jpg"
+    link: "#"
+
+events:
+  - title: "Winter Hackathon 2025"
+    date: "Jan 15, 2025"
+    description: "A 48-hour coding marathon focused on solving real-world problems."
+    image: "/images/events/hackathon-2025.jpg"
+    url: "/events/2025/winter-hackathon-2025"
+  - title: "Summer Hackathon 2025"
+    date: "Jun 20, 2025"
+    description: "Annual summer coding competition with tracks in AI, Web3, and Cloud."
+    image: "/images/events/summer-hackathon.jpg"
+    url: "/events/2025/summer-hackathon-2025"
+
+initiatives:
+  - title: "Open Source Saturday"
+    description: "Weekly meetups to contribute to open source projects and learn git."
+    icon: "fa-code-branch"
+  - title: "Mentorship Program"
+    description: "Connecting juniors with seniors for career guidance and technical support."
+    icon: "fa-handshake"
+
+awards:
+  - title: "Best Student Chapter 2025"
+    organization: "Computer Society of India"
+    date: "March 2025"
+  - title: "Innovation Award"
+    organization: "Tech Summit 2025"
+    date: "August 2025"
+
+collaborations:
+  industry:
+    - name: "Google Developer Student Club"
+      description: "Joint events and workshops"
+    - name: "Microsoft Learn Student Ambassador"
+      description: "Cloud workshops and resources"
+    - name: "GitHub Campus Expert"
+      description: "Open source initiatives"
+  academic:
+    - name: "Research Projects"
+      description: "Collaboration with CS department on 3 research projects"
+    - name: "Course Integration"
+      description: "DSA platform used in CS102 course"
+    - name: "Faculty Mentorship"
+      description: "Regular guest lectures by faculty"

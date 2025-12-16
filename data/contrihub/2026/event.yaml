@@ -1,0 +1,18 @@
+# ContriHub 2026 Event Data
+event:
+  name: "ContriHub 2026"
+  tagline: "AI & Automation"
+  start_date: "2026-10-15"
+  end_date: "2026-11-15"
+  duration: "1 month"
+  participants: 0
+  merged_prs: 0
+  repositories: 10
+  description: "Upcoming edition focusing on integrating AI into our workflows."
+  status: "upcoming"
+
+stats:
+  features_added: 0
+  bugs_fixed: 0
+  docs_improved: 0
+  tests_added: 0

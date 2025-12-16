@@ -4,7 +4,7 @@ description = "Learn about our mission, vision, and the community we're building
 weight = 1
 
 [extra]
-badge = "NEW"
+toc_expand = true
 +++
 
 # About Computer Coding Club
@@ -232,35 +232,9 @@ We're grateful to our partners who support our initiatives:
 
 ---
 
-## Contact Us
+## Get in Touch
 
-### General Inquiries
-**Email**: info@ccclub.edu  
-**Phone**: +91-XXXX-XXXXXX
-
-### Event Partnerships
-**Email**: events@ccclub.edu
-
-### Technical Support
-**Email**: tech@ccclub.edu
-
-### Discord
-[Join our server](https://discord.gg/ccclub)
-
-### Social Media
-- **Instagram**: [@ccclub_official](https://instagram.com/ccclub_official)
-- **LinkedIn**: [Computer Coding Club](https://linkedin.com/company/ccclub)
-- **Twitter**: [@ccclub_official](https://twitter.com/ccclub_official)
-- **GitHub**: [@ccclub-org](https://github.com/ccclub-org)
-- **YouTube**: [CC Club Channel](https://youtube.com/@ccclub)
-
----
-
-## Visit Us
-
-**Office**: Room 203, Computer Science Department  
-**Meeting Times**: Every Saturday, 4:00 PM - 6:00 PM  
-**Campus**: [Your College Name], [City]
+Have questions or want to collaborate? Visit our [Contact Page](/contact) for more details on how to reach us, or drop by our office!
 
 ---
 
