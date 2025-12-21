@@ -158,6 +158,8 @@
         <div id="sidebar" class="drawer-side pt-16 border-r border-gray-500/15 overflow-hidden">
             {% if section is defined %}
                 {{ macros_sidebar::sidebar(config=config, lang=lang, current_path=current_path, section=section) }}
+            {% elif page is defined %}
+                {{ macros_sidebar::sidebar(config=config, lang=lang, current_path=current_path, page=page) }}
             {% else %}
                 {{ macros_sidebar::sidebar(config=config, lang=lang, current_path=current_path, section=false) }}
             {% endif %}
