@@ -217,6 +217,11 @@
 
 
 
+
+
+    
+
+
 <div class="navbar opacity-95 fixed top-0 left-0 right-0 z-50 h-16 border-b border-gray-500/15 backdrop-blur-3xl">
     <!-- Mobile hamburger (and Desktop on Root Page) -->
     <div class="flex-none lg:hidden">
@@ -234,7 +239,7 @@
     
     <!-- Logo -->
     <div class="flex-1">
-        <a href="/cc-website/preview" class="btn btn-ghost hover:animate-pulse hover:bg-transparent hover:border-transparent normal-case text-xl" style="background: linear-gradient(135deg, #9ca3af, #6b7280); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: bold; font-size: 1.5rem;">
+        <a href="/cc-website/preview" class="btn btn-ghost hover:animate-pulse hover:bg-transparent hover:border-transparent normal-case text-xl logo-link" style="background: linear-gradient(135deg, #9ca3af, #6b7280); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: bold; font-size: 1.5rem;">
             
                 CC Club
             
@@ -248,8 +253,13 @@
             
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/about">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/about">
                                 <i class="fa-solid fa-circle-info"></i>
                                 About
                             </a>
@@ -257,8 +267,13 @@
                     
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/blog">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/blog">
                                 <i class="fa-solid fa-blog"></i>
                                 Blog
                             </a>
@@ -266,8 +281,13 @@
                     
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/events">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/events">
                                 <i class="fa-solid fa-calendar-days"></i>
                                 Events
                             </a>
@@ -275,8 +295,13 @@
                     
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/contrihub">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/contrihub">
                                 <i class="fa-solid fa-code-branch"></i>
                                 ContriHub
                             </a>
@@ -284,8 +309,13 @@
                     
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/impact">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/impact">
                                 <i class="fa-solid fa-rocket"></i>
                                 Impact
                             </a>
@@ -293,8 +323,13 @@
                     
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/roadmaps">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/roadmaps">
                                 <i class="fa-solid fa-route"></i>
                                 Roadmaps
                             </a>
@@ -302,8 +337,13 @@
                     
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/resources">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/resources">
                                 <i class="fa-solid fa-book-open"></i>
                                 Resources
                             </a>
@@ -319,15 +359,19 @@
                             </div>
                             <ul tabindex="0" class="dropdown-content menu bg-base-100 border border-gray-500/15 rounded-box z-1 p-2 shadow-sm">
                                 
+                                    
+                                    
                                     <li>
-                                        <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/team">
+                                        <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/team">
                                             <i class="fa-solid fa-user-group"></i>
                                             Current Team
                                         </a>
                                     </li>
                                 
+                                    
+                                    
                                     <li>
-                                        <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/alumni">
+                                        <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/alumni">
                                             <i class="fa-solid fa-graduation-cap"></i>
                                             Alumni
                                         </a>
@@ -338,8 +382,13 @@
                     
                 
                     
+                        
+                        
+                        
+                            
+                        
                         <li>
-                            <a class="btn btn-ghost hover:no-underline" href="/cc-website/preview/contact">
+                            <a class="btn btn-ghost hover:no-underline " href="/cc-website/preview/contact">
                                 <i class="fa-solid fa-envelope"></i>
                                 Contact
                             </a>
@@ -366,6 +415,36 @@
         </ul>
     </div>
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    
+    const navLinks = document.querySelectorAll('.navbar a[href]:not(.logo-link)');
+    
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+                if (link.classList.contains('active-nav')) {
+            return;
+        }
+        
+        let isActive = false;
+        
+        if (linkPath === '/') {
+            isActive = (currentPath === '/' || currentPath === '');
+        } else {
+            isActive = currentPath.startsWith(linkPath);
+        }
+        
+        if (isActive) {
+            link.classList.add('active-nav');
+        } else {
+            link.classList.remove('active-nav');
+        }
+    });
+});
+</script>
 
             <div class="p-8 w-full max-w-3xl mx-auto flex flex-col justify-center items-center min-h-[60vh]">
                 <main class="flex flex-auto flex-col items-center justify-center px-4 text-center sm:flex-row">
@@ -674,7 +753,7 @@
                                 
                                 
                                 <li>
-                                    <a  href="/cc-website/preview/contrihub/2025">ContriHub 2025</a>
+                                    <a  href="/cc-website/preview/contrihub/2024">ContriHub 2024</a>
                                 </li>
                             
                                 
@@ -682,7 +761,7 @@
                                 
                                 
                                 <li>
-                                    <a  href="/cc-website/preview/contrihub/2024">ContriHub 2024</a>
+                                    <a  href="/cc-website/preview/contrihub/2025">ContriHub 2025</a>
                                 </li>
                             
                         </ul>
